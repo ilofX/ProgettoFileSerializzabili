@@ -3,9 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/H:/Progetti%205%5E/Informatica/FileSerializzabili/Progetto/src/Model/Accessorio.java</file>
-            <file>file:/H:/Progetti%205%5E/Informatica/FileSerializzabili/Progetto/src/Model/FileManagers/AppendObjectOutputStream.java</file>
-            <file>file:/H:/Progetti%205%5E/Informatica/FileSerializzabili/Progetto/src/Model/Auto.java</file>
+            <file>file:/D:/Users/Filippo/Documents/NetBeansProjects/ProgettoFileSerializzabili/src/Model/Auto.java</file>
+            <file>file:/D:/Users/Filippo/Documents/NetBeansProjects/ProgettoFileSerializzabili/src/Main.java</file>
+            <file>file:/D:/Users/Filippo/Documents/NetBeansProjects/ProgettoFileSerializzabili/src/Model/FileManager.java</file>
+            <file>file:/D:/Users/Filippo/Documents/NetBeansProjects/ProgettoFileSerializzabili/src/View/MainFrame.java</file>
+            <file>file:/D:/Users/Filippo/Documents/NetBeansProjects/ProgettoFileSerializzabili/src/Model/Accessorio.java</file>
+            <file>file:/D:/Users/Filippo/Documents/NetBeansProjects/ProgettoFileSerializzabili/src/View/LoginForm/LoginPanel.java</file>
         </group>
     </open-files>
 </project-private>
