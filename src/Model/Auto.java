@@ -59,6 +59,9 @@ public class Auto implements Serializable{
         this.usato=true;
     }
 
+    public ImageIcon getImage() {
+        return this.image;
+    }
     public String getMarca() {
         return this.marca;
     }
@@ -77,7 +80,10 @@ public class Auto implements Serializable{
     public String getData(){
         return ""+this.mese+"/"+this.anno;
     }
-    public DefaultTableModel getAccessori(){
+    public ArrayList<Accessorio> getAccessori() {
+        return this.accessori;
+    }
+    public DefaultTableModel getTabellaAccessori(){
         DefaultTableModel tableModel = new DefaultTableModel(new String[] {"Accessorio","Prezzo"}, 0);
         Iterator<Accessorio> i=this.accessori.iterator();
         while(i.hasNext()){
@@ -113,28 +119,25 @@ public class Auto implements Serializable{
             return false;
         }
         final Auto other = (Auto) obj;
-        if (this.usato != other.usato) {
+        if (this.usato != other.isUsato()) {
             return false;
         }
-        if (!Objects.equals(this.marca, other.marca)) {
+        if (!Objects.equals(this.marca, other.getMarca())) {
             return false;
         }
-        if (!Objects.equals(this.tipo, other.tipo)) {
+        if (!Objects.equals(this.tipo, other.getTipo())) {
             return false;
         }
-        if (!Objects.equals(this.alimentazione, other.alimentazione)) {
+        if (!Objects.equals(this.alimentazione, other.getAlimentazione())) {
             return false;
         }
-        if (!Objects.equals(this.accessori, other.accessori)) {
+        if (!Objects.equals(this.accessori, other.getAccessori())) {
             return false;
         }
-        if (!Objects.equals(this.cilindrata, other.cilindrata)) {
+        if (!Objects.equals(this.cilindrata, other.getCilindrata())) {
             return false;
         }
-        if (!Objects.equals(this.mese, other.mese)) {
-            return false;
-        }
-        if (!Objects.equals(this.anno, other.anno)) {
+        if (!Objects.equals(this.getData(), other.getData())) {
             return false;
         }
         return true;

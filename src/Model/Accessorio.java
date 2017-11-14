@@ -62,7 +62,7 @@ public class Accessorio {
             return false;
         }
         final Accessorio other = (Accessorio) obj;
-        if (!Objects.equals(this.accessorio, other.accessorio)) {
+        if (!Objects.equals(this.accessorio, other.getAccessorio())) {
             return false;
         }
         return true;
