@@ -1,6 +1,8 @@
 
 import View.LoginForm.LoginPanel;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
 /*
  * Copyright 2017 Stella Filippo.
@@ -28,7 +30,11 @@ public class Main {
     public static void main(String[] args) {
         JFrame dial = new JFrame();
         dial.setContentPane(new LoginPanel());
+        dial.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        dial.setUndecorated(true);
         dial.pack();
+        dial.setLocationRelativeTo(null);
+        //((JPanel)dial.getContentPane()).setBorder(new EmptyBorder(5, 5, 5, 5));
         dial.setVisible(true);
         
     }
