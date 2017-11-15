@@ -1,10 +1,7 @@
 
 import Control.FocusListenerLogin;
 import View.LoginForm.LoginPanel;
-import java.awt.event.FocusListener;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 
 /*
  * Copyright 2017 Stella Filippo.
