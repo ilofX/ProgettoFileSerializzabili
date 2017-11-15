@@ -1,5 +1,7 @@
 
+import Control.FocusListenerLogin;
 import View.LoginForm.LoginPanel;
+import java.awt.event.FocusListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -37,6 +39,8 @@ public class Main {
         //((JPanel)dial.getContentPane()).setBorder(new EmptyBorder(5, 5, 5, 5));
         dial.setVisible(true);
         
+        
+        FocusListenerLogin fll = new FocusListenerLogin((LoginPanel)dial.getContentPane());
     }
     
 }
