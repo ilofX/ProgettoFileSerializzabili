@@ -1,8 +1,3 @@
-
-import Control.ListenerLoginForm;
-import View.LoginForm.LoginPanel;
-import javax.swing.JFrame;
-
 /*
  * Copyright 2017 Stella Filippo.
  *
@@ -18,25 +13,21 @@ import javax.swing.JFrame;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package Model;
 
 /**
  *
  * @author Stella Filippo
  * @version 0.01
  */
-public class Main {
-
-    public static void main(String[] args) {
-        JFrame dial = new JFrame();
-        dial.setContentPane(new LoginPanel());
-        dial.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        dial.setUndecorated(true);
-        dial.pack();
-        dial.setLocationRelativeTo(null);
-        dial.setVisible(true);
-        ((LoginPanel)dial.getContentPane()).getjButton1().requestFocus();
+public class GestoreAccessi {
+    
+    private static final String[] Users = new String[]{"treviso","oderzo","vittorio veneto","mogliano"};
+    private static final String[] Pass= new String[]    {"5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+                                                        "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+                                                        "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+                                                        "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8"};
         
-        ListenerLoginForm fll = new ListenerLoginForm((LoginPanel)dial.getContentPane());
-    }
     
 }
+      
