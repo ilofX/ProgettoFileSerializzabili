@@ -18,6 +18,9 @@ package View.LoginForm;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import static java.lang.Thread.sleep;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -45,8 +48,12 @@ public class LoginPanel extends javax.swing.JPanel implements FocusListener{
         this.frame.pack();
         this.frame.setLocationRelativeTo(null);
         this.frame.setVisible(true);
+        try {
+            sleep(50);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.jButton1.requestFocus();
-        
     }
 
     /**
@@ -115,12 +122,14 @@ public class LoginPanel extends javax.swing.JPanel implements FocusListener{
         jButton1.setText("Login");
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
+        jButton1.setFocusPainted(false);
 
         jButton2.setBackground(new java.awt.Color(0, 113, 156));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Annulla");
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
+        jButton2.setFocusPainted(false);
 
         jLabel3.setBackground(new java.awt.Color(77, 77, 77));
         jLabel3.setForeground(new java.awt.Color(255, 0, 0));

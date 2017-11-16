@@ -60,6 +60,7 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(800, 600));
 
         jPanel1.setBackground(new java.awt.Color(0, 113, 156));
         jPanel1.setPreferredSize(new java.awt.Dimension(1024, 60));
