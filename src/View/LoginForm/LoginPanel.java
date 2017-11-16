@@ -101,14 +101,12 @@ public class LoginPanel extends javax.swing.JPanel {
         jButton1.setText("Login");
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
-        jButton1.setFocusPainted(false);
 
         jButton2.setBackground(new java.awt.Color(0, 113, 156));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Annulla");
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
-        jButton2.setFocusPainted(false);
 
         jLabel3.setBackground(new java.awt.Color(77, 77, 77));
         jLabel3.setForeground(new java.awt.Color(255, 0, 0));
@@ -179,14 +177,14 @@ public class LoginPanel extends javax.swing.JPanel {
         return jLabel3;
     }
     
-    public void setFocusTextArea(FocusListener fl){
-        this.jTextField1.addFocusListener(fl);
-        this.jTextField2.addFocusListener(fl);
-    }
-    
     public void setActionButton(ActionListener al){
         this.jButton1.addActionListener(al);
         this.jButton2.addActionListener(al);
+    }
+
+    public void setFocusTextArea(FocusListener fl){
+        this.jTextField1.addFocusListener(fl);
+        this.jTextField2.addFocusListener(fl);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
