@@ -1,4 +1,7 @@
 
+import View.MainFrame;
+
+
 
 /*
  * Copyright 2017 Stella Filippo.
@@ -36,6 +39,8 @@ public class Main {
         
         
         FocusListenerLogin fll = new FocusListenerLogin((LoginPanel)dial.getContentPane());*/
+        
+        MainFrame mf = new MainFrame();
     }
     
 }
