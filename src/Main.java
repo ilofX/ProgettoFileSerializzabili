@@ -1,5 +1,4 @@
 
-import View.MainFrame;
 
 /*
  * Copyright 2017 Stella Filippo.
@@ -31,12 +30,12 @@ public class Main {
         dial.setUndecorated(true);
         dial.pack();
         dial.setLocationRelativeTo(null);
+        //((JPanel)dial.getContentPane()).setBorder(new EmptyBorder(5, 5, 5, 5));
         dial.setVisible(true);
         ((LoginPanel)dial.getContentPane()).getjButton1().requestFocus();
         
-        ListenerLoginForm fll = new ListenerLoginForm((LoginPanel)dial.getContentPane());
-        */
-        MainFrame mf = new MainFrame();
+        
+        FocusListenerLogin fll = new FocusListenerLogin((LoginPanel)dial.getContentPane());*/
     }
     
 }
