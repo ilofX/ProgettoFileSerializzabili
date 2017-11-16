@@ -36,6 +36,7 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
      * Creates new form MainFram
      */
     public MainFrame() {
+        super("Gestione Concessionaria");
         this.initComponents();
         this.pack();
         this.setLocationRelativeTo(null);
