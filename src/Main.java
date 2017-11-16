@@ -1,7 +1,5 @@
 
-import Control.ListenerLoginForm;
-import View.LoginForm.LoginPanel;
-import javax.swing.JFrame;
+import View.MainFrame;
 
 /*
  * Copyright 2017 Stella Filippo.
@@ -27,7 +25,7 @@ import javax.swing.JFrame;
 public class Main {
 
     public static void main(String[] args) {
-        JFrame dial = new JFrame();
+        /*JFrame dial = new JFrame();
         dial.setContentPane(new LoginPanel());
         dial.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         dial.setUndecorated(true);
@@ -37,6 +35,8 @@ public class Main {
         ((LoginPanel)dial.getContentPane()).getjButton1().requestFocus();
         
         ListenerLoginForm fll = new ListenerLoginForm((LoginPanel)dial.getContentPane());
+        */
+        MainFrame mf = new MainFrame();
     }
     
 }
