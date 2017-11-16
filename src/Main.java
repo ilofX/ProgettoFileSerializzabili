@@ -30,7 +30,7 @@ public class Main {
 
     public static void main(String[] args) {
         MainFrame mf = new MainFrame();
-        LoginPanel lp = new LoginPanel(); 
+        LoginPanel lp = new LoginPanel();
         ActionListenerLoginForm allf = new ActionListenerLoginForm(lp, mf);
     }
     
