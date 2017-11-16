@@ -16,8 +16,10 @@
 package View.LoginForm;
 
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
@@ -25,7 +27,7 @@ import javax.swing.JTextField;
  *
  * @author Stella Filippo
  */
-public class LoginPanel extends javax.swing.JPanel {
+public class LoginPanel extends javax.swing.JPanel implements FocusListener{
 
     /**
      * Creates new form LoginPanel
@@ -33,6 +35,18 @@ public class LoginPanel extends javax.swing.JPanel {
     public LoginPanel() {
         initComponents();
         this.jLabel3.setVisible(false);
+        this.setFocusTextArea(this);
+        this.frame = new JFrame();
+        this.frame.setResizable(false);
+        this.frame.setName("Login");
+        this.frame.setContentPane(this);
+        this.frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        this.frame.setUndecorated(true);
+        this.frame.pack();
+        this.frame.setLocationRelativeTo(null);
+        this.frame.setVisible(true);
+        this.jButton1.requestFocus();
+        
     }
 
     /**
@@ -187,6 +201,11 @@ public class LoginPanel extends javax.swing.JPanel {
         this.jTextField2.addFocusListener(fl);
     }
     
+    public void dispose(){
+        this.frame.setVisible(false);
+        this.frame.dispose();
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -199,4 +218,39 @@ public class LoginPanel extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
+    private final JFrame frame;
+
+    @Override
+    public void focusGained(FocusEvent e) {
+        if(e.getSource()==this.jTextField1){
+            if(this.jTextField1.getText().equals("Username")){
+                this.jTextField1.setText("");
+            }
+        }
+        else if(e.getSource()==this.jTextField2){
+            if(this.jTextField2.getText().equals("Password")){
+                this.jTextField2.setText("");
+            }
+        }
+        else{
+            throw new UnsupportedOperationException("Not supported yet.");
+        }
+    }
+
+    @Override
+    public void focusLost(FocusEvent e) {
+        if(e.getSource()==this.jTextField1){
+            if(this.jTextField1.getText().isEmpty()){
+                this.jTextField1.setText("Username");
+            }
+        }
+        else if(e.getSource()==this.jTextField2){
+            if(this.jTextField2.getText().isEmpty()){
+                this.jTextField2.setText("Password");
+            }
+        }
+        else{
+            throw new UnsupportedOperationException("Not supported yet.");
+        }
+    }
 }

@@ -1,4 +1,6 @@
 
+import Control.ActionListenerLoginForm;
+import View.LoginForm.LoginPanel;
 import View.MainFrame;
 
 
@@ -27,20 +29,9 @@ import View.MainFrame;
 public class Main {
 
     public static void main(String[] args) {
-        /*JFrame dial = new JFrame();
-        dial.setContentPane(new LoginPanel());
-        dial.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        dial.setUndecorated(true);
-        dial.pack();
-        dial.setLocationRelativeTo(null);
-        //((JPanel)dial.getContentPane()).setBorder(new EmptyBorder(5, 5, 5, 5));
-        dial.setVisible(true);
-        ((LoginPanel)dial.getContentPane()).getjButton1().requestFocus();
-        
-        
-        FocusListenerLogin fll = new FocusListenerLogin((LoginPanel)dial.getContentPane());*/
-        
         MainFrame mf = new MainFrame();
+        LoginPanel lp = new LoginPanel(); 
+        ActionListenerLoginForm allf = new ActionListenerLoginForm(lp, mf);
     }
     
 }
