@@ -39,9 +39,8 @@ public class LoginPanel extends javax.swing.JPanel implements FocusListener{
         initComponents();
         this.jLabel3.setVisible(false);
         this.setFocusTextArea(this);
-        this.frame = new JFrame();
+        this.frame = new JFrame("Login");
         this.frame.setResizable(false);
-        this.frame.setName("Login");
         this.frame.setContentPane(this);
         this.frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         this.frame.setUndecorated(true);
