@@ -122,7 +122,7 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 540, Short.MAX_VALUE)
         );
 
         jPanel2.setBackground(new java.awt.Color(0, 113, 156));
