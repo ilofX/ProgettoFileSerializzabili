@@ -315,18 +315,12 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
 
         jList1.setBackground(new java.awt.Color(77, 77, 77));
         jList1.setForeground(new java.awt.Color(208, 208, 208));
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jList1.setSelectionBackground(new java.awt.Color(0, 113, 156));
         jList1.setSelectionForeground(new java.awt.Color(208, 208, 208));
         jScrollPane1.setViewportView(jList1);
 
         jComboBox3.setBackground(new java.awt.Color(77, 77, 77));
         jComboBox3.setForeground(new java.awt.Color(208, 208, 208));
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox3.setBorder(null);
 
         jButton2.setBackground(new java.awt.Color(0, 113, 156));
