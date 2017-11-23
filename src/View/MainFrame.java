@@ -734,7 +734,6 @@ class OpenMenu extends Thread{
                     menu.revalidate();
                     menu.repaint();
                     sleep(0,3);
-                    System.out.println(menu.getSize());
                 } catch (InterruptedException ex) {
                     Logger.getLogger(OpenMenu.class.getName()).log(Level.SEVERE, null, ex);
                 } 
@@ -764,7 +763,6 @@ class CloseMenu extends Thread{
                     menu.revalidate();
                     menu.repaint();
                     sleep(0,3);
-                    System.out.println(menu.getSize());
                 } catch (InterruptedException ex) {
                     Logger.getLogger(OpenMenu.class.getName()).log(Level.SEVERE, null, ex);
                 }
