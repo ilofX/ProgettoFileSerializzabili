@@ -1,5 +1,6 @@
 
 import Control.ActionListenerLoginForm;
+import Control.ActionListenerMainMenu;
 import View.LoginForm.LoginPanel;
 import View.MainFrame;
 
@@ -32,6 +33,7 @@ public class Main {
         MainFrame mf = new MainFrame();
         LoginPanel lp = new LoginPanel();
         ActionListenerLoginForm allf = new ActionListenerLoginForm(lp, mf);
+        ActionListenerMainMenu almm = new ActionListenerMainMenu(mf);
     }
     
 }

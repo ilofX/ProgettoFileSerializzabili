@@ -38,7 +38,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jLayeredPane1" alignment="0" max="32767" attributes="0"/>
-          <Component id="Header" alignment="0" pref="841" max="32767" attributes="0"/>
+          <Component id="Header" alignment="0" pref="847" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -47,7 +47,6 @@
               <Component id="Header" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Component id="jLayeredPane1" max="32767" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -69,7 +68,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Component id="ToggleMenu" min="-2" pref="36" max="-2" attributes="0"/>
-                  <EmptySpace pref="475" max="32767" attributes="0"/>
+                  <EmptySpace pref="481" max="32767" attributes="0"/>
                   <Component id="User" min="-2" pref="300" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               </Group>
@@ -138,31 +137,22 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="Aggiunta" alignment="0" pref="841" max="32767" attributes="0"/>
+              <Component id="Aggiunta" alignment="0" pref="847" max="32767" attributes="0"/>
               <Component id="Menu" min="-2" max="-2" attributes="0"/>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Stampa" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="Stampa" alignment="0" pref="847" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Vendita" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="Vendita" alignment="1" pref="847" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Modifica" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="Modifica" alignment="0" pref="847" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="4" groupAlignment="0" attributes="0">
-                  <Component id="Footer" alignment="1" pref="841" max="32767" attributes="0"/>
+                  <Component id="Footer" alignment="1" pref="847" max="32767" attributes="0"/>
+              </Group>
+              <Group type="103" rootIndex="5" groupAlignment="0" attributes="0">
+                  <Component id="Welcome" alignment="0" pref="847" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -171,31 +161,22 @@
               <Component id="Aggiunta" pref="564" max="32767" attributes="0"/>
               <Component id="Menu" pref="564" max="32767" attributes="0"/>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Stampa" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="Stampa" alignment="0" pref="564" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Vendita" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="Vendita" alignment="0" pref="564" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Modifica" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="Modifica" alignment="0" pref="564" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="4" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="544" max="32767" attributes="0"/>
                       <Component id="Footer" min="-2" max="-2" attributes="0"/>
                   </Group>
+              </Group>
+              <Group type="103" rootIndex="5" groupAlignment="0" attributes="0">
+                  <Component id="Welcome" alignment="0" pref="564" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -216,7 +197,7 @@
             <Property name="requestFocusEnabled" type="boolean" value="false"/>
           </Properties>
           <AuxValues>
-            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="100"/>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="200"/>
           </AuxValues>
 
           <Layout>
@@ -251,6 +232,35 @@
             </Component>
           </SubComponents>
         </Container>
+        <Container class="javax.swing.JPanel" name="Welcome">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="4d" green="4d" red="4d" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[800, 540]"/>
+            </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[841, 546]"/>
+            </Property>
+          </Properties>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="847" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="564" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+        </Container>
         <Container class="javax.swing.JPanel" name="Modifica">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -262,17 +272,20 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[800, 540]"/>
             </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[841, 546]"/>
+            </Property>
           </Properties>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="829" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="841" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="552" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="564" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -288,17 +301,20 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[800, 540]"/>
             </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[841, 546]"/>
+            </Property>
           </Properties>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="829" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="841" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="552" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="564" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -314,17 +330,20 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[800, 540]"/>
             </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[841, 546]"/>
+            </Property>
           </Properties>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="829" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="841" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="552" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="564" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -341,7 +360,7 @@
               <Dimension value="[800, 540]"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[800, 540]"/>
+              <Dimension value="[841, 546]"/>
             </Property>
           </Properties>
 
@@ -383,16 +402,18 @@
                                           <Component id="jSeparator3" alignment="1" max="32767" attributes="0"/>
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Group type="102" attributes="0">
+                                                  <Component id="jTextField3" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jSeparator4" max="32767" attributes="0"/>
+                                                  <Component id="jScrollPane1" pref="300" max="32767" attributes="0"/>
+                                                  <Group type="102" alignment="0" attributes="0">
                                                       <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                                       <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jComboBox2" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jTextField3" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jSeparator4" max="32767" attributes="0"/>
-                                                  <Component id="jScrollPane1" pref="300" max="32767" attributes="0"/>
+                                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                                      <Component id="jComboBox1" alignment="0" pref="100" max="32767" attributes="0"/>
+                                                      <Component id="jComboBox2" alignment="0" max="32767" attributes="0"/>
+                                                  </Group>
                                               </Group>
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
@@ -418,7 +439,7 @@
                               <Component id="jScrollPane2" min="-2" pref="300" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="24" max="32767" attributes="0"/>
+                      <EmptySpace pref="71" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -644,13 +665,8 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="d0" green="d0" red="d0" type="rgb"/>
                 </Property>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                  </StringArray>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="this.generaMesi()" type="code"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
@@ -678,13 +694,8 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="d0" green="d0" red="d0" type="rgb"/>
                 </Property>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                  </StringArray>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="this.generaAnni()" type="code"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
@@ -931,39 +942,39 @@
             <Property name="requestFocusEnabled" type="boolean" value="false"/>
           </Properties>
           <AuxValues>
-            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="200"/>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="100"/>
           </AuxValues>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButton3" alignment="1" min="-2" pref="250" max="-2" attributes="0"/>
-                  <Component id="jButton1" alignment="1" max="32767" attributes="0"/>
-                  <Component id="jButton4" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jButton5" alignment="1" max="32767" attributes="0"/>
-                  <Component id="jButton6" alignment="1" max="32767" attributes="0"/>
+                  <Component id="MButton_Modifica" alignment="1" min="-2" pref="250" max="-2" attributes="0"/>
+                  <Component id="MButton_Aggiungi" alignment="1" max="32767" attributes="0"/>
+                  <Component id="MButton_Nuovi" alignment="0" max="32767" attributes="0"/>
+                  <Component id="MButton_Usati" alignment="1" max="32767" attributes="0"/>
+                  <Component id="MButton_Vendita" alignment="1" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="MButton_Aggiungi" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                      <Component id="jButton4" min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="MButton_Nuovi" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jButton5" min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="MButton_Usati" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                      <Component id="jButton6" min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="MButton_Vendita" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jButton3" min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="MButton_Modifica" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="MButton_Aggiungi">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="9c" green="71" red="0" type="rgb"/>
@@ -979,7 +990,7 @@
                 <Property name="focusPainted" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton3">
+            <Component class="javax.swing.JButton" name="MButton_Modifica">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="9c" green="71" red="0" type="rgb"/>
@@ -995,7 +1006,7 @@
                 <Property name="focusPainted" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton4">
+            <Component class="javax.swing.JButton" name="MButton_Nuovi">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="9c" green="71" red="0" type="rgb"/>
@@ -1011,7 +1022,7 @@
                 <Property name="focusPainted" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton5">
+            <Component class="javax.swing.JButton" name="MButton_Usati">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="9c" green="71" red="0" type="rgb"/>
@@ -1027,7 +1038,7 @@
                 <Property name="focusPainted" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton6">
+            <Component class="javax.swing.JButton" name="MButton_Vendita">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="9c" green="71" red="0" type="rgb"/>
