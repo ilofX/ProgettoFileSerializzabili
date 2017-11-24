@@ -15,10 +15,15 @@
  */
 package Control;
 
+import Constants.Utenti;
 import View.LoginForm.LoginPanel;
 import View.MainFrame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -28,6 +33,7 @@ public class ActionListenerLoginForm implements ActionListener{
 
     private LoginPanel loginPanel;
     private MainFrame mf;
+    private final Utenti utenti = new Utenti();
 
     public ActionListenerLoginForm(LoginPanel login, MainFrame mf) {
         this.loginPanel = login;
@@ -38,12 +44,23 @@ public class ActionListenerLoginForm implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        byte[] hash = null;
         if(e.getSource()==this.loginPanel.getjButton1()){
-            //LOGIN
-            this.loginPanel.getjLabel3().setVisible(true);
-            
-            this.loginPanel.dispose();
-            this.mf.setVisible(true);
+            try {
+                MessageDigest digest= MessageDigest.getInstance("SHA-256");
+                hash = digest.digest(this.loginPanel.getjTextField2().getText().getBytes());
+            } catch (NoSuchAlgorithmException ex) {
+                Logger.getLogger(ActionListenerLoginForm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            String psw = new String(hash);
+            System.out.println(psw);
+            if(utenti.isValid(this.loginPanel.getjTextField1().getText(), psw)){
+                this.loginPanel.dispose();
+                this.mf.setVisible(true);
+            }
+            else{
+                this.loginPanel.getjLabel3().setVisible(true);
+            }
         }
         else if(e.getSource()==this.loginPanel.getjButton2()){
             //ANNULLA

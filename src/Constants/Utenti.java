@@ -46,7 +46,7 @@ public class Utenti {
         if(this.user.contains(user)){
             pos=this.user.indexOf(user);
         }
-        if(pos<5){
+        if(pos<5 && pos>-1){
             if(this.psw.get(pos).contains(pasw)){
                 ris=true;
             }
