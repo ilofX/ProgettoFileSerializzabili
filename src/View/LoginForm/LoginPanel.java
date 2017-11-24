@@ -111,6 +111,7 @@ public class LoginPanel extends javax.swing.JPanel implements FocusListener{
         jTextField2.setBackground(new java.awt.Color(77, 77, 77));
         jTextField2.setForeground(new java.awt.Color(208, 208, 208));
         jTextField2.setText("Password");
+        jTextField2.setToolTipText("");
         jTextField2.setBorder(null);
 
         jSeparator2.setBackground(new java.awt.Color(77, 77, 77));

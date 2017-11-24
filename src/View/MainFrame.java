@@ -63,9 +63,27 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
         Footer = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         Welcome = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         Modifica = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jList2 = new javax.swing.JList<>();
+        jLabel17 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jList3 = new javax.swing.JList<>();
+        jLabel18 = new javax.swing.JLabel();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jButton3 = new javax.swing.JButton();
         Vendita = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        Lista_Vendita = new javax.swing.JList<>();
         Stampa = new javax.swing.JPanel();
+        Label_Stampa = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        Lista_Stampa = new javax.swing.JList<>();
         Aggiunta = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -119,6 +137,7 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
         ToggleMenu.setBorder(null);
         ToggleMenu.setBorderPainted(false);
         ToggleMenu.setFocusPainted(false);
+        ToggleMenu.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ToggleMenu.setOpaque(false);
         ToggleMenu.setVerifyInputWhenFocusTarget(false);
 
@@ -126,29 +145,27 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
         User.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         User.setForeground(new java.awt.Color(255, 255, 255));
         User.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        User.setText("Benvenuto User");
+        User.setText("Concessionario Utente");
 
         javax.swing.GroupLayout HeaderLayout = new javax.swing.GroupLayout(Header);
         Header.setLayout(HeaderLayout);
         HeaderLayout.setHorizontalGroup(
             HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HeaderLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(ToggleMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 481, Short.MAX_VALUE)
+                .addGap(17, 17, 17)
+                .addComponent(ToggleMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(User, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
         HeaderLayout.setVerticalGroup(
             HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HeaderLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(HeaderLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(User))
-                    .addComponent(ToggleMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15))
+                .addGap(17, 17, 17)
+                .addGroup(HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(User)
+                    .addComponent(ToggleMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 17, Short.MAX_VALUE))
         );
 
         jLayeredPane1.setMinimumSize(new java.awt.Dimension(800, 540));
@@ -185,15 +202,42 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
         Welcome.setMinimumSize(new java.awt.Dimension(800, 540));
         Welcome.setPreferredSize(new java.awt.Dimension(841, 546));
 
+        jLabel13.setBackground(new java.awt.Color(77, 77, 77));
+        jLabel13.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(208, 208, 208));
+        jLabel13.setText("Benvenuto Utente");
+        jLabel13.setFocusable(false);
+        jLabel13.setRequestFocusEnabled(false);
+
+        jLabel15.setBackground(new java.awt.Color(77, 77, 77));
+        jLabel15.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(208, 208, 208));
+        jLabel15.setText("Per iniziare seleziona un'attività dal menù a sinistra");
+        jLabel15.setFocusable(false);
+        jLabel15.setRequestFocusEnabled(false);
+
         javax.swing.GroupLayout WelcomeLayout = new javax.swing.GroupLayout(Welcome);
         Welcome.setLayout(WelcomeLayout);
         WelcomeLayout.setHorizontalGroup(
             WelcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 847, Short.MAX_VALUE)
+            .addGroup(WelcomeLayout.createSequentialGroup()
+                .addGroup(WelcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(WelcomeLayout.createSequentialGroup()
+                        .addGap(330, 330, 330)
+                        .addComponent(jLabel15))
+                    .addGroup(WelcomeLayout.createSequentialGroup()
+                        .addGap(300, 300, 300)
+                        .addComponent(jLabel13)))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         WelcomeLayout.setVerticalGroup(
             WelcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 564, Short.MAX_VALUE)
+            .addGroup(WelcomeLayout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addComponent(jLabel13)
+                .addGap(27, 27, 27)
+                .addComponent(jLabel15)
+                .addContainerGap(383, Short.MAX_VALUE))
         );
 
         Modifica.setBackground(new java.awt.Color(77, 77, 77));
@@ -201,15 +245,89 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
         Modifica.setMinimumSize(new java.awt.Dimension(800, 540));
         Modifica.setPreferredSize(new java.awt.Dimension(841, 546));
 
+        jLabel16.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(208, 208, 208));
+        jLabel16.setText("Modifica Automobile Usata");
+
+        jScrollPane4.setBackground(new java.awt.Color(77, 77, 77));
+        jScrollPane4.setBorder(null);
+        jScrollPane4.setForeground(new java.awt.Color(208, 208, 208));
+
+        jList2.setBackground(new java.awt.Color(77, 77, 77));
+        jList2.setForeground(new java.awt.Color(208, 208, 208));
+        jScrollPane4.setViewportView(jList2);
+
+        jLabel17.setBackground(new java.awt.Color(77, 77, 77));
+        jLabel17.setForeground(new java.awt.Color(208, 208, 208));
+        jLabel17.setText("Automobile");
+
+        jScrollPane6.setBackground(new java.awt.Color(77, 77, 77));
+        jScrollPane6.setBorder(null);
+        jScrollPane6.setForeground(new java.awt.Color(208, 208, 208));
+
+        jList3.setBackground(new java.awt.Color(77, 77, 77));
+        jList3.setForeground(new java.awt.Color(208, 208, 208));
+        jScrollPane6.setViewportView(jList3);
+
+        jLabel18.setBackground(new java.awt.Color(77, 77, 77));
+        jLabel18.setForeground(new java.awt.Color(208, 208, 208));
+        jLabel18.setText("Accessori");
+
+        jComboBox4.setBackground(new java.awt.Color(77, 77, 77));
+        jComboBox4.setForeground(new java.awt.Color(208, 208, 208));
+        jComboBox4.setBorder(null);
+
+        jButton3.setBackground(new java.awt.Color(0, 113, 156));
+        jButton3.setForeground(new java.awt.Color(208, 208, 208));
+        jButton3.setText("Aggiungi");
+        jButton3.setBorder(null);
+
         javax.swing.GroupLayout ModificaLayout = new javax.swing.GroupLayout(Modifica);
         Modifica.setLayout(ModificaLayout);
         ModificaLayout.setHorizontalGroup(
             ModificaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 841, Short.MAX_VALUE)
+            .addGroup(ModificaLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(ModificaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ModificaLayout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(ModificaLayout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                        .addGroup(ModificaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(ModificaLayout.createSequentialGroup()
+                                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(24, 24, 24))
+                    .addGroup(ModificaLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel17)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel18)
+                        .addGap(307, 307, 307))))
         );
         ModificaLayout.setVerticalGroup(
             ModificaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 564, Short.MAX_VALUE)
+            .addGroup(ModificaLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ModificaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel18))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ModificaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModificaLayout.createSequentialGroup()
+                        .addComponent(jScrollPane6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(ModificaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jComboBox4)
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         Vendita.setBackground(new java.awt.Color(77, 77, 77));
@@ -217,15 +335,47 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
         Vendita.setMinimumSize(new java.awt.Dimension(800, 540));
         Vendita.setPreferredSize(new java.awt.Dimension(841, 546));
 
+        jLabel14.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(208, 208, 208));
+        jLabel14.setText("Vendita Automobile");
+
+        jButton1.setBackground(new java.awt.Color(0, 113, 156));
+        jButton1.setForeground(new java.awt.Color(208, 208, 208));
+        jButton1.setText("Vendi");
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.setFocusPainted(false);
+
+        jScrollPane5.setBackground(new java.awt.Color(77, 77, 77));
+        jScrollPane5.setBorder(null);
+        jScrollPane5.setForeground(new java.awt.Color(208, 208, 208));
+
+        Lista_Vendita.setBackground(new java.awt.Color(77, 77, 77));
+        Lista_Vendita.setForeground(new java.awt.Color(208, 208, 208));
+        jScrollPane5.setViewportView(Lista_Vendita);
+
         javax.swing.GroupLayout VenditaLayout = new javax.swing.GroupLayout(Vendita);
         Vendita.setLayout(VenditaLayout);
         VenditaLayout.setHorizontalGroup(
             VenditaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 841, Short.MAX_VALUE)
+            .addGroup(VenditaLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(VenditaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 789, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         VenditaLayout.setVerticalGroup(
             VenditaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 564, Short.MAX_VALUE)
+            .addGroup(VenditaLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         Stampa.setBackground(new java.awt.Color(77, 77, 77));
@@ -233,15 +383,37 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
         Stampa.setMinimumSize(new java.awt.Dimension(800, 540));
         Stampa.setPreferredSize(new java.awt.Dimension(841, 546));
 
+        Label_Stampa.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        Label_Stampa.setForeground(new java.awt.Color(208, 208, 208));
+        Label_Stampa.setText("Lista Automobili");
+
+        jScrollPane3.setBackground(new java.awt.Color(77, 77, 77));
+        jScrollPane3.setBorder(null);
+        jScrollPane3.setForeground(new java.awt.Color(208, 208, 208));
+
+        Lista_Stampa.setBackground(new java.awt.Color(77, 77, 77));
+        Lista_Stampa.setForeground(new java.awt.Color(208, 208, 208));
+        jScrollPane3.setViewportView(Lista_Stampa);
+
         javax.swing.GroupLayout StampaLayout = new javax.swing.GroupLayout(Stampa);
         Stampa.setLayout(StampaLayout);
         StampaLayout.setHorizontalGroup(
             StampaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 841, Short.MAX_VALUE)
+            .addGroup(StampaLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(StampaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Label_Stampa)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 804, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         StampaLayout.setVerticalGroup(
             StampaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 564, Short.MAX_VALUE)
+            .addGroup(StampaLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(Label_Stampa)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         Aggiunta.setBackground(new java.awt.Color(77, 77, 77));
@@ -272,7 +444,7 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
         jTextField4.setForeground(new java.awt.Color(208, 208, 208));
         jTextField4.setBorder(null);
         jTextField4.setCaretColor(new java.awt.Color(208, 208, 208));
-        jTextField4.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextField4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jSeparator3.setBackground(new java.awt.Color(77, 77, 77));
         jSeparator3.setForeground(new java.awt.Color(208, 208, 208));
@@ -428,9 +600,8 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
                                                 .addComponent(jRadioButton1)
                                                 .addGap(18, 18, 18)
                                                 .addComponent(jRadioButton2))
-                                            .addGroup(AggiuntaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, 100, Short.MAX_VALUE)
-                                                .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                            .addComponent(jComboBox1, 0, 300, Short.MAX_VALUE)
+                                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addComponent(jSeparator6)
                                     .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)))
@@ -736,6 +907,9 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
     private javax.swing.JPanel Aggiunta;
     private javax.swing.JPanel Footer;
     private javax.swing.JPanel Header;
+    private javax.swing.JLabel Label_Stampa;
+    private javax.swing.JList<String> Lista_Stampa;
+    private javax.swing.JList<String> Lista_Vendita;
     private javax.swing.JButton MButton_Aggiungi;
     private javax.swing.JButton MButton_Modifica;
     private javax.swing.JButton MButton_Nuovi;
@@ -749,14 +923,23 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
     private javax.swing.JLabel User;
     private javax.swing.JPanel Vendita;
     private javax.swing.JPanel Welcome;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -767,10 +950,16 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JList<String> jList1;
+    private javax.swing.JList<String> jList2;
+    private javax.swing.JList<String> jList3;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
