@@ -104,6 +104,7 @@ public class LoginPanel extends javax.swing.JPanel implements FocusListener{
         jTextField1.setForeground(new java.awt.Color(208, 208, 208));
         jTextField1.setText("Username");
         jTextField1.setBorder(null);
+        jTextField1.setCaretColor(new java.awt.Color(208, 208, 208));
 
         jSeparator1.setBackground(new java.awt.Color(77, 77, 77));
         jSeparator1.setForeground(new java.awt.Color(208, 208, 208));
@@ -113,6 +114,7 @@ public class LoginPanel extends javax.swing.JPanel implements FocusListener{
         jTextField2.setText("Password");
         jTextField2.setToolTipText("");
         jTextField2.setBorder(null);
+        jTextField2.setCaretColor(new java.awt.Color(208, 208, 208));
 
         jSeparator2.setBackground(new java.awt.Color(77, 77, 77));
         jSeparator2.setForeground(new java.awt.Color(208, 208, 208));
@@ -168,11 +170,11 @@ public class LoginPanel extends javax.swing.JPanel implements FocusListener{
                 .addComponent(jLabel3)
                 .addGap(5, 5, 5)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(1, 1, 1)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(1, 1, 1)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
