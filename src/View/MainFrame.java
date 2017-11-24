@@ -872,7 +872,7 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
     
     public DefaultComboBoxModel generaAnni(){
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
-        for(int i=1900;i<Calendar.getInstance().get(Calendar.YEAR);i++){
+        for(int i=1950;i<Calendar.getInstance().get(Calendar.YEAR);i++){
             model.addElement(""+i);
         }
         return model;
