@@ -86,7 +86,7 @@ public class ListenerAggiuntaAuto implements ActionListener, MouseListener {
                 temp.aggiungiAccessorio(acc);
             }
             try {
-                this.cn.aggiungiAuto(temp, this.mf.getjRadioButton2().isSelected());
+                this.cn.aggiungiAuto(temp, false);
             } catch (IOException ex) {
                 Logger.getLogger(ListenerAggiuntaAuto.class.getName()).log(Level.SEVERE, null, ex);
             }
