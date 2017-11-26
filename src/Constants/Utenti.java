@@ -26,13 +26,13 @@ public class Utenti {
     
     private final ArrayList<String> user = new ArrayList<>(); 
     private final ArrayList<String> psw = new ArrayList<>();
+    private String loggedUser;
 
     public Utenti() {
         this.user.add("Treviso");
         this.user.add("Oderzo");
         this.user.add("Vittorio");
         this.user.add("Mogliano");
-        this.user.add("Ospite");
  
         this.psw.add("340ea3e1272e7bde6f7501f1f81bac3515b074f246e44a3bc252bae31a3b852b");
         this.psw.add("1f668f49a726c5e1ae98bcc0db26c10ebb60500c0698428fc0c17e17efaa52des"); 
@@ -43,15 +43,26 @@ public class Utenti {
     public boolean isValid(String user,String pasw){
         boolean ris=false;
         int pos=-1;
-        if(this.user.contains(user)){
-            pos=this.user.indexOf(user);
-        }
-        if(pos<5 && pos>-1){
-            if(this.psw.get(pos).contains(pasw)){
-                ris=true;
+        if(!user.equals("Ospite")){
+            if(this.user.contains(user)){
+                pos=this.user.indexOf(user);
+            }
+            if(pos<5 && pos>-1){
+                if(this.psw.get(pos).toUpperCase().equals(pasw)){
+                    ris=true;
+                    this.loggedUser=user;
+                }
             }
         }
+        else{
+            ris=true;
+            this.loggedUser=user;
+        }
         return ris;
+    }
+    
+    public String getLoggedUser(){
+        return this.loggedUser;
     }
     
 }

@@ -58,7 +58,11 @@ public class Auto implements Serializable{
         this.accessori=new ArrayList<>();
         this.usato=true;
     }
-
+    
+    public void aggiungiAccessorio(Accessorio a){
+        this.accessori.add(a);
+    }
+    
     public ImageIcon getImage() {
         return this.image;
     }

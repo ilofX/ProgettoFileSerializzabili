@@ -24,6 +24,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.xml.bind.DatatypeConverter;
 
 /**
  *
@@ -33,11 +34,12 @@ public class ActionListenerLoginForm implements ActionListener{
 
     private LoginPanel loginPanel;
     private MainFrame mf;
-    private final Utenti utenti = new Utenti();
+    private final Utenti utenti;
 
-    public ActionListenerLoginForm(LoginPanel login, MainFrame mf) {
+    public ActionListenerLoginForm(LoginPanel login, MainFrame mf, Utenti u) {
         this.loginPanel = login;
         this.mf = mf;
+        this.utenti = u;
         this.loginPanel.setActionButton(this);
     }
     
@@ -52,10 +54,10 @@ public class ActionListenerLoginForm implements ActionListener{
             } catch (NoSuchAlgorithmException ex) {
                 Logger.getLogger(ActionListenerLoginForm.class.getName()).log(Level.SEVERE, null, ex);
             }
-            String psw = new String(hash);
-            System.out.println(psw);
+            String psw = DatatypeConverter.printHexBinary(hash);
             if(utenti.isValid(this.loginPanel.getjTextField1().getText(), psw)){
                 this.loginPanel.dispose();
+                this.mf.getUser().setText("Concessionario "+this.utenti.getLoggedUser());
                 this.mf.setVisible(true);
             }
             else{

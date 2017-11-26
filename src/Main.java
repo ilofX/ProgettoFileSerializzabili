@@ -1,8 +1,16 @@
 
+import Constants.Accessori;
+import Constants.Utenti;
 import Control.ActionListenerLoginForm;
 import Control.ActionListenerMainMenu;
+import Control.ListenerAggiuntaAuto;
+import Model.Concessionaria;
+import Model.FileManager;
 import View.LoginForm.LoginPanel;
 import View.MainFrame;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -30,10 +38,19 @@ import View.MainFrame;
 public class Main {
 
     public static void main(String[] args) {
-        MainFrame mf = new MainFrame();
-        LoginPanel lp = new LoginPanel();
-        ActionListenerLoginForm allf = new ActionListenerLoginForm(lp, mf);
-        ActionListenerMainMenu almm = new ActionListenerMainMenu(mf);
+        try {
+            MainFrame mf = new MainFrame();
+            LoginPanel lp = new LoginPanel();
+            Accessori a = new Accessori();
+            Utenti u = new Utenti();
+            FileManager fm = new FileManager();
+            Concessionaria c = new Concessionaria(fm, u);
+            ActionListenerLoginForm allf = new ActionListenerLoginForm(lp, mf, u);
+            ActionListenerMainMenu almm = new ActionListenerMainMenu(mf);
+            ListenerAggiuntaAuto laa = new ListenerAggiuntaAuto(mf,c,a);
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

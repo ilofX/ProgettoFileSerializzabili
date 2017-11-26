@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Filippo Stella.
+ * Copyright 2017 Stella Filippo.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,30 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package Model;
+package Constants;
 
-import Constants.Utenti;
-import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
- * @author Filippo Stella
+ * @author Stella Filippo
  * @version 0.01
  */
-public class Concessionaria {
+public class Accessori {
     
-    private final FileManager fm;
-    private final Utenti u;
+    private final Map<String,Double> accessori;
 
-    public Concessionaria(FileManager fm, Utenti u) {
-        this.fm = fm;
-        this.u = u;
+    public Accessori() {
+        this.accessori = new HashMap<>();
+        this.accessori.put("Climatizzatore", 150.00);
+        this.accessori.put("Navigatore", 200.00);
+        this.accessori.put("Radio",80.00);
+        this.accessori.put("Cerchi in lega", 180.00);
     }
     
-    public void aggiungiAuto(Auto a, boolean usato) throws IOException{
-        this.fm.write(this.u.getLoggedUser(), usato, a);
+    public Double getPrezzo(String s){
+        return accessori.get(s);
     }
-
-
 
 }
