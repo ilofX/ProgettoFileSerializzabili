@@ -205,7 +205,6 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(208, 208, 208));
-        jLabel9.setText("Logger");
         jLabel9.setFocusable(false);
         jLabel9.setRequestFocusEnabled(false);
 
@@ -1100,6 +1099,9 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
     }
     public JComboBox<String> getjComboBox10() {
         return jComboBox10;
+    }
+    public JLabel getjLabel9() {
+        return jLabel9;
     }
         
     public void ToggleMenu(){
