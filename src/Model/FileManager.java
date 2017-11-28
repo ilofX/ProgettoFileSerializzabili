@@ -33,8 +33,8 @@ import java.util.ArrayList;
  */
 public class FileManager {
     
-    private final File Treviso,Oderzo,Vittorio,Mogliano;
-    private final File Treviso_Vendute,Oderzo_Vendute,Vittorio_Vendute,Mogliano_Vendute;
+    private File Treviso,Oderzo,Vittorio,Mogliano;
+    private File Treviso_Vendute,Oderzo_Vendute,Vittorio_Vendute,Mogliano_Vendute;
     private FileInputStream inFile;
     private FileOutputStream outFile;
     private ObjectInputStream inObject;
@@ -245,6 +245,120 @@ public class FileManager {
             }
         }
         return ris;
+    }
+    
+     public void remove(String file,boolean vendute,Auto auto) throws FileNotFoundException, IOException{
+        File f=null;
+        if(vendute){
+            switch(file){
+                case "Treviso":
+                    f=this.Treviso_Vendute;
+                    this.inFile = new FileInputStream(this.Treviso_Vendute);
+                    break;
+                case "Oderzo":
+                    f=this.Oderzo_Vendute;
+                    this.inFile = new FileInputStream(this.Oderzo_Vendute);
+                    break;
+                case "Vittorio":
+                    f=this.Vittorio_Vendute;
+                    this.inFile = new FileInputStream(this.Vittorio_Vendute);
+                    break;
+                case "Mogliano":
+                    f=this.Mogliano_Vendute;
+                    this.inFile = new FileInputStream(this.Mogliano_Vendute);
+                    break;
+                default:
+                    throw new IllegalStateException("Filiale non trovata");           
+            }
+        }
+        else{
+            switch(file){
+                case "Treviso":
+                    f=this.Treviso;
+                    this.inFile = new FileInputStream(this.Treviso);
+                    break;
+                case "Oderzo":
+                    f=this.Oderzo;
+                    this.inFile = new FileInputStream(this.Oderzo);
+                    break;
+                case "Vittorio":
+                    f=this.Vittorio;
+                    this.inFile = new FileInputStream(this.Vittorio);
+                    break;
+                case "Mogliano":
+                    f=this.Mogliano;
+                    this.inFile = new FileInputStream(this.Mogliano);
+                    break;
+                default:
+                    throw new IllegalStateException("Filiale non trovata");           
+            }
+        }
+        this.inObject = new ObjectInputStream(this.inFile);
+        File dummy = new File("Resources/dummy.dat");
+        boolean first=true;
+        while(true){
+            Auto a = null;
+            FileOutputStream outFileDummy; 
+            ObjectOutputStream outObjectDummy;
+            try {
+                a= (Auto)this.inObject.readObject();
+            } catch (ClassNotFoundException ex) {
+                break;
+            } finally {
+                dummy.delete();
+                if(first){
+                    outFileDummy = new FileOutputStream(dummy);
+                    outObjectDummy = new ObjectOutputStream(outFileDummy);
+                    first=false;
+                }
+                else{
+                    outFileDummy = new FileOutputStream(dummy,true);
+                    outObjectDummy = new AppendObjectOutputStream(outFileDummy);
+                }
+                if(!auto.equals(a)){
+                    outObjectDummy.writeObject(a);
+                }
+                outFileDummy.close();
+            }
+        }
+        f.delete();
+        dummy.renameTo(f);
+        if(vendute){
+            switch(file){
+                case "Treviso":
+                    this.Treviso_Vendute=dummy;
+                    break;
+                case "Oderzo":
+                    this.Oderzo_Vendute=dummy;
+                    break;
+                case "Vittorio":
+                    this.Vittorio_Vendute=dummy;
+                    break;
+                case "Mogliano":
+                    this.Mogliano_Vendute=dummy;
+                    break;
+                default:
+                    throw new IllegalStateException("Filiale non trovata");           
+            }
+        }
+        else{
+            switch(file){
+                case "Treviso":
+                    this.Treviso=dummy;
+                    break;
+                case "Oderzo":
+                    this.Oderzo=dummy;
+                    break;
+                case "Vittorio":
+                    this.Vittorio=dummy;
+                    break;
+                case "Mogliano":
+                    this.Mogliano=dummy;
+                    break;
+                default:
+                    throw new IllegalStateException("Filiale non trovata");           
+            }
+        }
     }
     
 }
