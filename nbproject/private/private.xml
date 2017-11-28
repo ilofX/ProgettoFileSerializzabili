@@ -3,9 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/Users/Filippo/Documents/NetBeansProjects/ProgettoFileSerializzabili/src/Model/Concessionaria.java</file>
+            <file>file:/D:/Users/Filippo/Documents/NetBeansProjects/ProgettoFileSerializzabili/src/Model/Auto.java</file>
             <file>file:/D:/Users/Filippo/Documents/NetBeansProjects/ProgettoFileSerializzabili/src/Main.java</file>
             <file>file:/D:/Users/Filippo/Documents/NetBeansProjects/ProgettoFileSerializzabili/src/View/MainFrame.java</file>
-            <file>file:/D:/Users/Filippo/Documents/NetBeansProjects/ProgettoFileSerializzabili/src/Control/ActionListenerMainMenu.java</file>
+            <file>file:/D:/Users/Filippo/Documents/NetBeansProjects/ProgettoFileSerializzabili/src/Model/FileManager.java</file>
+            <file>file:/D:/Users/Filippo/Documents/NetBeansProjects/ProgettoFileSerializzabili/src/Constants/Utenti.java</file>
+            <file>file:/D:/Users/Filippo/Documents/NetBeansProjects/ProgettoFileSerializzabili/src/Control/ActionListenerLoginForm.java</file>
+            <file>file:/D:/Users/Filippo/Documents/NetBeansProjects/ProgettoFileSerializzabili/src/Model/Accessorio.java</file>
+            <file>file:/D:/Users/Filippo/Documents/NetBeansProjects/ProgettoFileSerializzabili/src/Constants/Accessori.java</file>
+            <file>file:/D:/Users/Filippo/Documents/NetBeansProjects/ProgettoFileSerializzabili/src/Control/ListenerAggiuntaAuto.java</file>
         </group>
     </open-files>
 </project-private>

@@ -52,14 +52,7 @@ public class ActionListenerMainMenu implements ActionListener{
             this.mf.ToggleMenu();
         }
         else if(e.getSource()==this.mf.getMButton_Nuovi()){
-            this.mf.getStampa().setVisible(true);
-            this.mf.getAggiunta().setVisible(false);
-            this.mf.getModifica().setVisible(false);
-            this.mf.getVendita().setVisible(false);
-            this.mf.getWelcome().setVisible(false);
-            this.mf.ToggleMenu();
-        }
-        else if(e.getSource()==this.mf.getMButton_Usati()){
+            this.mf.generaFasciaPrezzo();
             this.mf.getStampa().setVisible(true);
             this.mf.getAggiunta().setVisible(false);
             this.mf.getModifica().setVisible(false);

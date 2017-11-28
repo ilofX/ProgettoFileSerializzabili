@@ -46,12 +46,17 @@ public class ListenerAggiuntaAuto implements ActionListener, MouseListener {
     private final MainFrame mf;
     private final Concessionaria cn;
     private final Accessori a;
+    private static Integer maxPrezzo=-1;
 
     public ListenerAggiuntaAuto(MainFrame mf, Concessionaria cn, Accessori a) {
         this.mf = mf;
         this.cn = cn;
         this.a = a;
         this.mf.setActionAggiungiButton(this,this);
+    }
+    
+    public static Integer getMaxPrezzo(){
+        return ListenerAggiuntaAuto.maxPrezzo;
     }
     
     @Override
@@ -75,15 +80,18 @@ public class ListenerAggiuntaAuto implements ActionListener, MouseListener {
         else if(e.getSource()==this.mf.getjButton4()){
             Auto temp=null;
             if(this.mf.getjRadioButton2().isSelected()){
-                temp= new Auto(this.mf.getjTextField1().getText(), this.mf.getjTextField4().getText(), this.mf.getjTextField2().getText(), (ImageIcon)this.mf.getjLabel12().getIcon(), Integer.parseInt(this.mf.getjTextField6().getText()), Integer.parseInt((String)this.mf.getjComboBox1().getSelectedItem()), Integer.parseInt((String)this.mf.getjComboBox2().getSelectedItem()));
+                temp= new Auto(this.mf.getjTextField1().getText(), this.mf.getjTextField4().getText(), (String)this.mf.getjComboBox10().getSelectedItem(), (ImageIcon)this.mf.getjLabel12().getIcon(), Integer.parseInt(this.mf.getjTextField6().getText()), (String)this.mf.getjComboBox1().getSelectedItem(), Integer.parseInt((String)this.mf.getjComboBox2().getSelectedItem()));
             }
             else{
-                temp= new Auto(this.mf.getjTextField1().getText(), this.mf.getjTextField4().getText(), this.mf.getjTextField2().getText(), (ImageIcon)this.mf.getjLabel12().getIcon(), Integer.parseInt(this.mf.getjTextField6().getText()));
+                temp= new Auto(this.mf.getjTextField1().getText(), this.mf.getjTextField4().getText(), (String)this.mf.getjComboBox10().getSelectedItem(), (ImageIcon)this.mf.getjLabel12().getIcon(), Integer.parseInt(this.mf.getjTextField6().getText()));
             }
             for(int i=0;i<this.mf.getjList1().getModel().getSize();i++){
                 String s = this.mf.getjList1().getModel().getElementAt(i);
                 Accessorio acc= new Accessorio(s, ""+this.a.getPrezzo(s));
                 temp.aggiungiAccessorio(acc);
+            }
+            if(Integer.parseInt(this.mf.getjTextField3().getText())>ListenerAggiuntaAuto.maxPrezzo){
+                ListenerAggiuntaAuto.maxPrezzo=Integer.parseInt(this.mf.getjTextField3().getText());
             }
             try {
                 this.cn.aggiungiAuto(temp, false);

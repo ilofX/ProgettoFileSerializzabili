@@ -29,10 +29,10 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Auto implements Serializable{
     
-    private final String marca,tipo,alimentazione;
+    private final String marca,tipo,alimentazione,mese;
     private final ArrayList<Accessorio> accessori;
     private final ImageIcon image;
-    private final Integer cilindrata,mese,anno;
+    private final Integer cilindrata,anno;
     private final boolean usato;
 
     public Auto(String marca, String tipo, String alimentazione, ImageIcon image, Integer cilindrata) {
@@ -43,11 +43,11 @@ public class Auto implements Serializable{
         this.cilindrata = cilindrata;
         this.accessori = new ArrayList<>();
         this.usato=false;
-        this.mese=-1;
+        this.mese="";
         this.anno=-1;
     }
 
-    public Auto(String marca, String tipo, String alimentazione, ImageIcon image, Integer cilindrata, Integer mese, Integer anno) {
+    public Auto(String marca, String tipo, String alimentazione, ImageIcon image, Integer cilindrata, String mese, Integer anno) {
         this.marca = marca;
         this.tipo = tipo;
         this.alimentazione = alimentazione;

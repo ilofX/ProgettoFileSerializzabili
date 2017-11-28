@@ -41,9 +41,9 @@ public class FileManager {
     private ObjectOutputStream outObject;
 
     public FileManager() throws IOException { 
-        File folder = new File("Resources");
+        File folder = new File("Resources/");
         if(!folder.exists()) {
-            folder.createNewFile();
+            folder.mkdir();
         }
         
         this.Treviso = new File("Resources/Treviso.dat");

@@ -15,6 +15,7 @@
  */
 package Model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -22,7 +23,7 @@ import java.util.Objects;
  * @author Stella Filippo
  * @version 0.01
  */
-public class Accessorio {
+public class Accessorio implements Serializable{
     private final String accessorio,prezzo;
 
     public Accessorio(String accessorio, String prezzo) {
