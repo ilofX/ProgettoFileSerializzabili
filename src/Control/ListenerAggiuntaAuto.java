@@ -80,10 +80,10 @@ public class ListenerAggiuntaAuto implements ActionListener, MouseListener {
         else if(e.getSource()==this.mf.getjButton4()){
             Auto temp=null;
             if(this.mf.getjRadioButton2().isSelected()){
-                temp= new Auto(this.mf.getjTextField1().getText(), this.mf.getjTextField4().getText(), (String)this.mf.getjComboBox10().getSelectedItem(), (ImageIcon)this.mf.getjLabel12().getIcon(), Integer.parseInt(this.mf.getjTextField6().getText()), (String)this.mf.getjComboBox1().getSelectedItem(), Integer.parseInt((String)this.mf.getjComboBox2().getSelectedItem()));
+                temp= new Auto(this.mf.getjTextField1().getText(), this.mf.getjTextField4().getText(), (String)this.mf.getjComboBox10().getSelectedItem(), (ImageIcon)this.mf.getjLabel12().getIcon(), Integer.parseInt(this.mf.getjTextField6().getText()), Integer.parseInt(this.mf.getjTextField3().getText()) , (String)this.mf.getjComboBox1().getSelectedItem(), Integer.parseInt((String)this.mf.getjComboBox2().getSelectedItem()));
             }
             else{
-                temp= new Auto(this.mf.getjTextField1().getText(), this.mf.getjTextField4().getText(), (String)this.mf.getjComboBox10().getSelectedItem(), (ImageIcon)this.mf.getjLabel12().getIcon(), Integer.parseInt(this.mf.getjTextField6().getText()));
+                temp= new Auto(this.mf.getjTextField1().getText(), this.mf.getjTextField4().getText(), (String)this.mf.getjComboBox10().getSelectedItem(), (ImageIcon)this.mf.getjLabel12().getIcon(), Integer.parseInt(this.mf.getjTextField6().getText()), Integer.parseInt(this.mf.getjTextField3().getText()));
             }
             for(int i=0;i<this.mf.getjList1().getModel().getSize();i++){
                 String s = this.mf.getjList1().getModel().getElementAt(i);
@@ -139,22 +139,22 @@ public class ListenerAggiuntaAuto implements ActionListener, MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet.");
     }
     
 }

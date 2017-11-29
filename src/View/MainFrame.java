@@ -25,7 +25,6 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -517,44 +516,45 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
         StampaLayout.setHorizontalGroup(
             StampaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(StampaLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
                 .addGroup(StampaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Label_Stampa)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, StampaLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(StampaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel20)
                     .addGroup(StampaLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
                         .addGroup(StampaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, StampaLayout.createSequentialGroup()
-                                .addComponent(FiltroNuovo)
-                                .addGap(155, 155, 155))
-                            .addGroup(StampaLayout.createSequentialGroup()
-                                .addComponent(FiltroUsato)
-                                .addGap(157, 157, 157)))
+                            .addComponent(Label_Stampa)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(StampaLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
                         .addGroup(StampaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(FiltroMese)
-                            .addComponent(FiltroAlimentazione)
-                            .addComponent(FiltroPrezzo)
-                            .addComponent(FiltroAnno))
-                        .addGap(18, 18, 18)
-                        .addGroup(StampaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel20)
                             .addGroup(StampaLayout.createSequentialGroup()
-                                .addComponent(jLabel21)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel22)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jComboBox7, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox8, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox9, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ApplicaFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
+                                .addGroup(StampaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, StampaLayout.createSequentialGroup()
+                                        .addComponent(FiltroNuovo)
+                                        .addGap(155, 155, 155))
+                                    .addGroup(StampaLayout.createSequentialGroup()
+                                        .addComponent(FiltroUsato)
+                                        .addGap(157, 157, 157)))
+                                .addGroup(StampaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(FiltroMese)
+                                    .addComponent(FiltroAlimentazione)
+                                    .addComponent(FiltroPrezzo)
+                                    .addComponent(FiltroAnno))
+                                .addGap(18, 18, 18)
+                                .addGroup(StampaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(StampaLayout.createSequentialGroup()
+                                        .addComponent(jLabel21)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel22)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jComboBox7, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jComboBox8, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jComboBox9, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
+                                .addComponent(ApplicaFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(14, 14, 14))
         );
         StampaLayout.setVerticalGroup(
             StampaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -587,7 +587,7 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
                     .addComponent(ApplicaFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         Aggiunta.setBackground(new java.awt.Color(77, 77, 77));
@@ -913,7 +913,7 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
 
         MButton_Nuovi.setBackground(new java.awt.Color(0, 113, 156));
         MButton_Nuovi.setForeground(new java.awt.Color(255, 255, 255));
-        MButton_Nuovi.setText("Lista Nuovo");
+        MButton_Nuovi.setText("Lista Automobili");
         MButton_Nuovi.setBorder(null);
         MButton_Nuovi.setBorderPainted(false);
         MButton_Nuovi.setFocusPainted(false);
