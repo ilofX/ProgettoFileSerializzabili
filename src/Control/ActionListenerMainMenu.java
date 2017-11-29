@@ -52,7 +52,6 @@ public class ActionListenerMainMenu implements ActionListener{
             this.mf.ToggleMenu();
         }
         else if(e.getSource()==this.mf.getMButton_Nuovi()){
-            this.mf.generaFasciaPrezzo();
             this.mf.getStampa().setVisible(true);
             this.mf.getAggiunta().setVisible(false);
             this.mf.getModifica().setVisible(false);

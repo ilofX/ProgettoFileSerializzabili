@@ -17,6 +17,7 @@ package Model;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -25,52 +26,65 @@ import java.util.Iterator;
  */
 public class Filters {
     
-    public static ArrayList<String> filtraPerPrezzo(ArrayList<String> lista,Integer start,Integer end){
-        ArrayList<String> ris = new ArrayList<>();
+    public static ArrayList<Auto> filtraPerPrezzo(ArrayList<Auto> lista,Integer start,Integer end){
+        ArrayList<Auto> ris = new ArrayList<>();
         Iterator i = lista.iterator();
         while(i.hasNext()){
             Auto a = (Auto)i.next();
             if(a.getPrezzo()>=start && a.getPrezzo()<=end){
-                ris.add(a.toString());
+                ris.add(a);
             }
         }
         return ris;
     }
     
-    public static ArrayList<String> filtraPerAlimentazione(ArrayList<String> lista,String alimentazione){
-        ArrayList<String> ris = new ArrayList<>();
+    public static ArrayList<Auto> filtraPerAlimentazione(ArrayList<Auto> lista,String alimentazione){
+        ArrayList<Auto> ris = new ArrayList<>();
         Iterator i = lista.iterator();
         while(i.hasNext()){
             Auto a = (Auto)i.next();
             if(a.getAlimentazione().equals(alimentazione)){
-                ris.add(a.toString());
+                ris.add(a);
             }
         }
         return ris;
     }
     
-    public static ArrayList<String> filtraPerAnnoProduzione(ArrayList<String> lista,Integer anno){
-        ArrayList<String> ris = new ArrayList<>();
+    public static ArrayList<Auto> filtraPerAnnoProduzione(ArrayList<Auto> lista,Integer anno){
+        ArrayList<Auto> ris = new ArrayList<>();
         Iterator i = lista.iterator();
         while(i.hasNext()){
             Auto a = (Auto)i.next();
             if(a.getAnno().equals(anno)){
-                ris.add(a.toString());
+                ris.add(a);
             }
         }
         return ris;
     }
     
-    public static ArrayList<String> filtraPerMeseProduzione(ArrayList<String> lista, String mese){
-        ArrayList<String> ris = new ArrayList<>();
+    public static ArrayList<Auto> filtraPerMeseProduzione(ArrayList<Auto> lista, String mese){
+        ArrayList<Auto> ris = new ArrayList<>();
         Iterator i = lista.iterator();
         while(i.hasNext()){
             Auto a = (Auto)i.next();
             if(a.getMese().equals(mese)){
-                ris.add(a.toString());
+                ris.add(a);
             }
         }
         return ris;
     }
         
+    public static DefaultListModel<String> convertiInLista(ArrayList<Auto> lista){
+        DefaultListModel<String> ris = new DefaultListModel<>();
+        Iterator<Auto> i = lista.iterator();
+        while(i.hasNext()){
+            Auto a = i.next();
+            ris.addElement(a.toString());
+        }
+        if(ris.isEmpty()) {
+            ris.addElement("La ricerca non ha prodotto risultati");
+        }
+        return ris;
+    }
+    
 }

@@ -46,17 +46,12 @@ public class ListenerAggiuntaAuto implements ActionListener, MouseListener {
     private final MainFrame mf;
     private final Concessionaria cn;
     private final Accessori a;
-    private static Integer maxPrezzo=-1;
 
     public ListenerAggiuntaAuto(MainFrame mf, Concessionaria cn, Accessori a) {
         this.mf = mf;
         this.cn = cn;
         this.a = a;
         this.mf.setActionAggiungiButton(this,this);
-    }
-    
-    public static Integer getMaxPrezzo(){
-        return ListenerAggiuntaAuto.maxPrezzo;
     }
     
     @Override
@@ -89,9 +84,6 @@ public class ListenerAggiuntaAuto implements ActionListener, MouseListener {
                 String s = this.mf.getjList1().getModel().getElementAt(i);
                 Accessorio acc= new Accessorio(s, ""+this.a.getPrezzo(s));
                 temp.aggiungiAccessorio(acc);
-            }
-            if(Integer.parseInt(this.mf.getjTextField3().getText())>ListenerAggiuntaAuto.maxPrezzo){
-                ListenerAggiuntaAuto.maxPrezzo=Integer.parseInt(this.mf.getjTextField3().getText());
             }
             try {
                 this.cn.aggiungiAuto(temp, false);

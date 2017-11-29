@@ -32,8 +32,8 @@ import javax.xml.bind.DatatypeConverter;
  */
 public class ActionListenerLoginForm implements ActionListener{
 
-    private LoginPanel loginPanel;
-    private MainFrame mf;
+    private final LoginPanel loginPanel;
+    private final MainFrame mf;
     private final Utenti utenti;
 
     public ActionListenerLoginForm(LoginPanel login, MainFrame mf, Utenti u) {

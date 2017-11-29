@@ -36,7 +36,6 @@ public class Concessionaria {
     public void aggiungiAuto(Auto a, boolean usato) throws IOException{
         this.fm.write(this.u.getLoggedUser(), usato, a);
     }
-
-
+    
 
 }

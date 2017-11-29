@@ -15,7 +15,6 @@
  */
 package View;
 
-import Control.ListenerAggiuntaAuto;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -49,6 +48,7 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
     public MainFrame() {
         super("Gestione Concessionaria");
         this.initComponents();
+        this.generaFasciaPrezzo();
         this.pack();
         this.setLocationRelativeTo(null);
         this.initPanels();
@@ -552,7 +552,7 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
                                     .addComponent(jComboBox7, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jComboBox8, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jComboBox9, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                                 .addComponent(ApplicaFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(14, 14, 14))
         );
@@ -585,9 +585,9 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
                     .addComponent(FiltroMese)
                     .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ApplicaFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         Aggiunta.setBackground(new java.awt.Color(77, 77, 77));
@@ -1146,7 +1146,19 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
     public JComboBox<String> getjComboBox7() {
         return jComboBox7;
     }
-      
+    public JComboBox<String> getjComboBox5() {
+        return jComboBox5;
+    }
+    public JComboBox<String> getjComboBox6() {
+        return jComboBox6;
+    }
+    public JComboBox<String> getjComboBox8() {
+        return jComboBox8;
+    }
+    public JComboBox<String> getjComboBox9() {
+        return jComboBox9;
+    }
+    
     public void ToggleMenu(){
         if(this.menuStatus){
             this.executor.execute(new CloseMenu(this));
@@ -1204,15 +1216,13 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
     
     public void generaFasciaPrezzo(){
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
-            model.addElement("0");
-            for(int i=500;i<ListenerAggiuntaAuto.getMaxPrezzo();i+=500){
+            for(int i=0;i<=140000;i+=1000){
                 model.addElement(""+i);
             }
             this.jComboBox5.setModel(model);
             
             model = new DefaultComboBoxModel<>();
-            model.addElement("500");
-            for(int i=1000;i<=ListenerAggiuntaAuto.getMaxPrezzo();i+=500){
+            for(int i=1000;i<=1500000;i+=1000){
                 model.addElement(""+i);
             }
             this.jComboBox6.setModel(model);
@@ -1223,8 +1233,7 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
         this.FiltroAlimentazione.addActionListener(al);
         this.FiltroAnno.addActionListener(al);
         this.FiltroMese.addActionListener(al);
-        this.FiltroNuovo.addActionListener(al);
-        this.FiltroUsato.addActionListener(al);
+        this.FiltroPrezzo.addActionListener(al);
     }        
     
     public void setActionMenuButton(ActionListener al){

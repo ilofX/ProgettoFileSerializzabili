@@ -158,4 +158,11 @@ public class Auto implements Serializable{
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "Auto{" + "marca=" + marca + ", tipo=" + tipo + ", alimentazione=" + alimentazione + ", mese=" + mese + ", accessori=" + accessori + ", image=" + image + ", cilindrata=" + cilindrata + ", anno=" + anno + ", prezzo=" + prezzo + ", usato=" + usato + '}';
+    }
+
+    
+    
 }
