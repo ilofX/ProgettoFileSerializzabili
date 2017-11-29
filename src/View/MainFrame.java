@@ -25,9 +25,11 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -94,20 +96,20 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
         jScrollPane3 = new javax.swing.JScrollPane();
         Lista_Stampa = new javax.swing.JList<>();
         jLabel20 = new javax.swing.JLabel();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        FiltroNuovo = new javax.swing.JRadioButton();
+        FiltroUsato = new javax.swing.JRadioButton();
+        FiltroPrezzo = new javax.swing.JCheckBox();
         jComboBox5 = new javax.swing.JComboBox<>();
         jComboBox6 = new javax.swing.JComboBox<>();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        FiltroAlimentazione = new javax.swing.JCheckBox();
         jComboBox7 = new javax.swing.JComboBox<>();
-        jCheckBox3 = new javax.swing.JCheckBox();
+        FiltroAnno = new javax.swing.JCheckBox();
         jComboBox8 = new javax.swing.JComboBox<>();
-        jCheckBox4 = new javax.swing.JCheckBox();
+        FiltroMese = new javax.swing.JCheckBox();
         jComboBox9 = new javax.swing.JComboBox<>();
-        jButton5 = new javax.swing.JButton();
+        ApplicaFiltro = new javax.swing.JButton();
         Aggiunta = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -425,33 +427,40 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
         jLabel20.setForeground(new java.awt.Color(208, 208, 208));
         jLabel20.setText("Filtri");
 
-        jRadioButton3.setBackground(new java.awt.Color(77, 77, 77));
-        FiltroVisualizzazione.add(jRadioButton3);
-        jRadioButton3.setForeground(new java.awt.Color(208, 208, 208));
-        jRadioButton3.setSelected(true);
-        jRadioButton3.setText("Nuove");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        FiltroNuovo.setBackground(new java.awt.Color(77, 77, 77));
+        FiltroVisualizzazione.add(FiltroNuovo);
+        FiltroNuovo.setForeground(new java.awt.Color(208, 208, 208));
+        FiltroNuovo.setSelected(true);
+        FiltroNuovo.setText("Nuove");
+        FiltroNuovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                FiltroNuovoActionPerformed(evt);
             }
         });
 
-        jRadioButton4.setBackground(new java.awt.Color(77, 77, 77));
-        FiltroVisualizzazione.add(jRadioButton4);
-        jRadioButton4.setForeground(new java.awt.Color(208, 208, 208));
-        jRadioButton4.setText("Usate");
+        FiltroUsato.setBackground(new java.awt.Color(77, 77, 77));
+        FiltroVisualizzazione.add(FiltroUsato);
+        FiltroUsato.setForeground(new java.awt.Color(208, 208, 208));
+        FiltroUsato.setText("Usate");
 
-        jCheckBox1.setBackground(new java.awt.Color(77, 77, 77));
-        jCheckBox1.setForeground(new java.awt.Color(208, 208, 208));
-        jCheckBox1.setText("Fascia di prezzo");
+        FiltroPrezzo.setBackground(new java.awt.Color(77, 77, 77));
+        FiltroPrezzo.setForeground(new java.awt.Color(208, 208, 208));
+        FiltroPrezzo.setText("Fascia di prezzo");
 
         jComboBox5.setBackground(new java.awt.Color(77, 77, 77));
         jComboBox5.setForeground(new java.awt.Color(208, 208, 208));
         jComboBox5.setBorder(null);
+        jComboBox5.setEnabled(false);
 
         jComboBox6.setBackground(new java.awt.Color(77, 77, 77));
         jComboBox6.setForeground(new java.awt.Color(208, 208, 208));
         jComboBox6.setBorder(null);
+        jComboBox6.setEnabled(false);
+        jComboBox6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox6ActionPerformed(evt);
+            }
+        });
 
         jLabel21.setBackground(new java.awt.Color(77, 77, 77));
         jLabel21.setForeground(new java.awt.Color(208, 208, 208));
@@ -461,42 +470,45 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
         jLabel22.setForeground(new java.awt.Color(208, 208, 208));
         jLabel22.setText("a");
 
-        jCheckBox2.setBackground(new java.awt.Color(77, 77, 77));
-        jCheckBox2.setForeground(new java.awt.Color(208, 208, 208));
-        jCheckBox2.setText("Alimentazione");
+        FiltroAlimentazione.setBackground(new java.awt.Color(77, 77, 77));
+        FiltroAlimentazione.setForeground(new java.awt.Color(208, 208, 208));
+        FiltroAlimentazione.setText("Alimentazione");
 
         jComboBox7.setBackground(new java.awt.Color(77, 77, 77));
         jComboBox7.setForeground(new java.awt.Color(208, 208, 208));
         jComboBox7.setModel(this.generaAlimentazione());
         jComboBox7.setBorder(null);
+        jComboBox7.setEnabled(false);
 
-        jCheckBox3.setBackground(new java.awt.Color(77, 77, 77));
-        jCheckBox3.setForeground(new java.awt.Color(208, 208, 208));
-        jCheckBox3.setText("Anno di produzione");
+        FiltroAnno.setBackground(new java.awt.Color(77, 77, 77));
+        FiltroAnno.setForeground(new java.awt.Color(208, 208, 208));
+        FiltroAnno.setText("Anno di produzione");
 
         jComboBox8.setBackground(new java.awt.Color(77, 77, 77));
         jComboBox8.setForeground(new java.awt.Color(208, 208, 208));
         jComboBox8.setModel(this.generaAnni());
         jComboBox8.setBorder(null);
+        jComboBox8.setEnabled(false);
 
-        jCheckBox4.setBackground(new java.awt.Color(77, 77, 77));
-        jCheckBox4.setForeground(new java.awt.Color(208, 208, 208));
-        jCheckBox4.setText("Mese di produzione");
+        FiltroMese.setBackground(new java.awt.Color(77, 77, 77));
+        FiltroMese.setForeground(new java.awt.Color(208, 208, 208));
+        FiltroMese.setText("Mese di produzione");
 
         jComboBox9.setBackground(new java.awt.Color(77, 77, 77));
         jComboBox9.setForeground(new java.awt.Color(208, 208, 208));
         jComboBox9.setModel(this.generaMesi());
         jComboBox9.setBorder(null);
+        jComboBox9.setEnabled(false);
 
-        jButton5.setBackground(new java.awt.Color(0, 113, 156));
-        jButton5.setForeground(new java.awt.Color(208, 208, 208));
-        jButton5.setText("Applica");
-        jButton5.setBorder(null);
-        jButton5.setBorderPainted(false);
-        jButton5.setFocusPainted(false);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        ApplicaFiltro.setBackground(new java.awt.Color(0, 113, 156));
+        ApplicaFiltro.setForeground(new java.awt.Color(208, 208, 208));
+        ApplicaFiltro.setText("Applica");
+        ApplicaFiltro.setBorder(null);
+        ApplicaFiltro.setBorderPainted(false);
+        ApplicaFiltro.setFocusPainted(false);
+        ApplicaFiltro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                ApplicaFiltroActionPerformed(evt);
             }
         });
 
@@ -517,16 +529,16 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
                     .addGroup(StampaLayout.createSequentialGroup()
                         .addGroup(StampaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, StampaLayout.createSequentialGroup()
-                                .addComponent(jRadioButton3)
+                                .addComponent(FiltroNuovo)
                                 .addGap(155, 155, 155))
                             .addGroup(StampaLayout.createSequentialGroup()
-                                .addComponent(jRadioButton4)
+                                .addComponent(FiltroUsato)
                                 .addGap(157, 157, 157)))
                         .addGroup(StampaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox4)
-                            .addComponent(jCheckBox2)
-                            .addComponent(jCheckBox1)
-                            .addComponent(jCheckBox3))
+                            .addComponent(FiltroMese)
+                            .addComponent(FiltroAlimentazione)
+                            .addComponent(FiltroPrezzo)
+                            .addComponent(FiltroAnno))
                         .addGap(18, 18, 18)
                         .addGroup(StampaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(StampaLayout.createSequentialGroup()
@@ -541,7 +553,7 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
                             .addComponent(jComboBox8, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jComboBox9, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ApplicaFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
         );
         StampaLayout.setVerticalGroup(
@@ -553,26 +565,26 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
                 .addComponent(jLabel20)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(StampaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton3)
-                    .addComponent(jCheckBox1)
+                    .addComponent(FiltroNuovo)
+                    .addComponent(FiltroPrezzo)
                     .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel21)
                     .addComponent(jLabel22))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(StampaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton4)
-                    .addComponent(jCheckBox2)
+                    .addComponent(FiltroUsato)
+                    .addComponent(FiltroAlimentazione)
                     .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(StampaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox3)
+                    .addComponent(FiltroAnno)
                     .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(StampaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox4)
+                    .addComponent(FiltroMese)
                     .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ApplicaFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(22, Short.MAX_VALUE))
@@ -933,7 +945,7 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
                 .addComponent(MButton_Vendita, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(MButton_Modifica, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(199, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLayeredPane1.setLayer(Footer, javax.swing.JLayeredPane.MODAL_LAYER);
@@ -997,13 +1009,17 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+    private void FiltroNuovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltroNuovoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    }//GEN-LAST:event_FiltroNuovoActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void ApplicaFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApplicaFiltroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_ApplicaFiltroActionPerformed
+
+    private void jComboBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox6ActionPerformed
 
     private void initPanels(){
         this.Stampa.setVisible(false);
@@ -1103,7 +1119,34 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
     public JLabel getjLabel9() {
         return jLabel9;
     }
-        
+    public JButton getApplicaFiltro() {
+        return ApplicaFiltro;
+    }
+    public JCheckBox getFiltroAlimentazione() {
+        return FiltroAlimentazione;
+    }
+    public JCheckBox getFiltroAnno() {
+        return FiltroAnno;
+    }
+    public JCheckBox getFiltroMese() {
+        return FiltroMese;
+    }
+    public JRadioButton getFiltroNuovo() {
+        return FiltroNuovo;
+    }
+    public JCheckBox getFiltroPrezzo() {
+        return FiltroPrezzo;
+    }
+    public JRadioButton getFiltroUsato() {
+        return FiltroUsato;
+    }
+    public JList<String> getLista_Stampa() {
+        return Lista_Stampa;
+    }
+    public JComboBox<String> getjComboBox7() {
+        return jComboBox7;
+    }
+      
     public void ToggleMenu(){
         if(this.menuStatus){
             this.executor.execute(new CloseMenu(this));
@@ -1173,7 +1216,16 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
                 model.addElement(""+i);
             }
             this.jComboBox6.setModel(model);
-    }   
+    }
+    
+    public void setActionStampa(ActionListener al){
+        this.ApplicaFiltro.addActionListener(al);
+        this.FiltroAlimentazione.addActionListener(al);
+        this.FiltroAnno.addActionListener(al);
+        this.FiltroMese.addActionListener(al);
+        this.FiltroNuovo.addActionListener(al);
+        this.FiltroUsato.addActionListener(al);
+    }        
     
     public void setActionMenuButton(ActionListener al){
         this.MButton_Aggiungi.addActionListener(al);
@@ -1192,6 +1244,13 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Aggiunta;
+    private javax.swing.JButton ApplicaFiltro;
+    private javax.swing.JCheckBox FiltroAlimentazione;
+    private javax.swing.JCheckBox FiltroAnno;
+    private javax.swing.JCheckBox FiltroMese;
+    private javax.swing.JRadioButton FiltroNuovo;
+    private javax.swing.JCheckBox FiltroPrezzo;
+    private javax.swing.JRadioButton FiltroUsato;
     private javax.swing.ButtonGroup FiltroVisualizzazione;
     private javax.swing.JPanel Footer;
     private javax.swing.JPanel Header;
@@ -1214,11 +1273,6 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox10;
     private javax.swing.JComboBox<String> jComboBox2;
@@ -1257,8 +1311,6 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
     private javax.swing.JList<String> jList3;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
