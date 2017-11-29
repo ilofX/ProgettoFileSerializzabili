@@ -90,10 +90,11 @@ public class ListenerAggiuntaAuto implements ActionListener, MouseListener {
             } catch (IOException ex) {
                 Logger.getLogger(ListenerAggiuntaAuto.class.getName()).log(Level.SEVERE, null, ex);
                 this.mf.getjLabel9().setText("Errore durante l'aggiunta dell'automobile");
+                this.mf.clearLogger();
                 return;
             }
             this.mf.getjLabel9().setText("Automobile aggiunta al parco auto");
-            
+            this.mf.clearLogger();    
         }         
         else{
             throw new UnsupportedOperationException("Not supported yet.");

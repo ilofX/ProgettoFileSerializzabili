@@ -1170,6 +1170,10 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
         }
     }
     
+    public void clearLogger(){
+        this.executor.execute(new ClearLogger(this.jLabel9));
+    }
+    
     public DefaultComboBoxModel generaAnni(){
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         for(int i=1950;i<=Calendar.getInstance().get(Calendar.YEAR);i++){
@@ -1409,4 +1413,26 @@ class CloseMenu extends Thread{
         }
     }
 
+}
+
+class ClearLogger extends Thread{
+    
+    private final JLabel logger;
+
+    public ClearLogger(JLabel logger) {
+        super("Pulisci menu");
+        this.logger = logger;
+    }
+
+    @Override
+    public void run() {
+        try {
+            sleep(2000);
+            this.logger.setText("");
+        } catch (InterruptedException ex) {
+            Logger.getLogger(ClearLogger.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    
 }
