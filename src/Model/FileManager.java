@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * Copyright 2017 Stella Filippo.
@@ -247,7 +249,7 @@ public class FileManager {
         return ris;
     }
     
-     public void remove(String file,boolean vendute,Auto auto) throws FileNotFoundException, IOException{
+    public void remove(String file,boolean vendute,Auto auto) throws FileNotFoundException, IOException{
         File f=null;
         if(vendute){
             switch(file){
@@ -359,6 +361,119 @@ public class FileManager {
                     throw new IllegalStateException("Filiale non trovata");           
             }
         }
+    }
+    
+     public void move(String file, Integer index) throws FileNotFoundException, IOException{
+        File f=null;
+        FileOutputStream outFileVendute;
+        ObjectOutputStream outObjectVendute;
+        switch(file){
+            case "Treviso":
+                f=this.Treviso;
+                this.inFile = new FileInputStream(this.Treviso);
+                if(this.Treviso_Vendute.exists()){
+                    outFileVendute = new FileOutputStream(this.Treviso_Vendute,true);
+                    outObjectVendute = new AppendObjectOutputStream(outFileVendute);
+                }                    
+                else{
+                    outFileVendute = new FileOutputStream(this.Treviso_Vendute);
+                    outObjectVendute = new ObjectOutputStream(outFileVendute);
+                }
+                break;
+            case "Oderzo":
+                f=this.Oderzo;
+                this.inFile = new FileInputStream(this.Oderzo);
+                if(this.Oderzo_Vendute.exists()){
+                    outFileVendute = new FileOutputStream(this.Oderzo_Vendute,true);
+                    outObjectVendute = new AppendObjectOutputStream(outFileVendute);
+                }                    
+                else{
+                    outFileVendute = new FileOutputStream(this.Oderzo_Vendute);
+                    outObjectVendute = new ObjectOutputStream(outFileVendute);
+                }
+                break;
+            case "Vittorio":
+                f=this.Vittorio;
+                this.inFile = new FileInputStream(this.Vittorio);
+                if(this.Vittorio_Vendute.exists()){
+                    outFileVendute = new FileOutputStream(this.Vittorio_Vendute);
+                    outObjectVendute = new AppendObjectOutputStream(outFileVendute);
+                }                    
+                else{
+                    outFileVendute = new FileOutputStream(this.Vittorio_Vendute);
+                    outObjectVendute = new ObjectOutputStream(outFileVendute);
+                }
+                break;
+            case "Mogliano":
+                f=this.Mogliano;
+                this.inFile = new FileInputStream(this.Mogliano);
+                if(this.Mogliano_Vendute.exists()){
+                    outFileVendute = new FileOutputStream(this.Mogliano_Vendute);
+                    outObjectVendute = new AppendObjectOutputStream(outFileVendute);
+                }                    
+                else{
+                    outFileVendute = new FileOutputStream(this.Mogliano_Vendute);
+                    outObjectVendute = new ObjectOutputStream(outFileVendute);
+                }
+                break;
+            default:
+                throw new IllegalStateException("Filiale non trovata");           
+        }
+        this.inObject = new ObjectInputStream(this.inFile);
+        File dummy = new File("Resources/dummy.dat");
+        boolean first=true;
+        int i=0;
+        while(true){
+            Auto a = null;
+            FileOutputStream outFileDummy; 
+            ObjectOutputStream outObjectDummy;
+            try {
+                a = (Auto)this.inObject.readObject();
+            } catch (IOException ex) {
+                break;
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                if(first){
+                    outFileDummy = new FileOutputStream(dummy);
+                    outObjectDummy = new ObjectOutputStream(outFileDummy);
+                    first=false;
+                }
+                else{
+                    outFileDummy = new FileOutputStream(dummy,true);
+                    outObjectDummy = new AppendObjectOutputStream(outFileDummy);
+                }
+                if(i==index){
+                    outObjectVendute.writeObject(a);
+                }
+                else{
+                    outObjectDummy.writeObject(a);
+                }
+                outFileDummy.close();
+            }
+            i++;
+        }
+        
+        outFileVendute.close();
+        f.delete();
+        dummy.renameTo(f);
+        switch(file){
+            case "Treviso":
+                this.Treviso_Vendute=dummy;
+                break;
+            case "Oderzo":
+                this.Oderzo_Vendute=dummy;
+                break;
+            case "Vittorio":
+                this.Vittorio_Vendute=dummy;
+                break;
+            case "Mogliano":
+                this.Mogliano_Vendute=dummy;
+                break;
+            default:
+                throw new IllegalStateException("Filiale non trovata");               
+        }
+        dummy.delete();
     }
     
 }

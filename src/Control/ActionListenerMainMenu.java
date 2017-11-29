@@ -15,9 +15,15 @@
  */
 package Control;
 
+import Constants.Utenti;
+import Model.FileManager;
+import Model.Filters;
 import View.MainFrame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -27,9 +33,13 @@ import java.awt.event.ActionListener;
 public class ActionListenerMainMenu implements ActionListener{
 
     private final MainFrame mf;
+    private final FileManager fm;
+    private final Utenti u;
 
-    public ActionListenerMainMenu(MainFrame mf) {
+    public ActionListenerMainMenu(MainFrame mf, Utenti u, FileManager fm) {
         this.mf = mf;
+        this.fm = fm;
+        this.u = u;
         this.mf.setActionMenuButton(this);
     }
 
@@ -52,6 +62,11 @@ public class ActionListenerMainMenu implements ActionListener{
             this.mf.ToggleMenu();
         }
         else if(e.getSource()==this.mf.getMButton_Nuovi()){
+            try {
+                this.mf.getLista_Vendita().setModel(Filters.convertiInLista(this.fm.read(u.getLoggedUser(), false)));
+            } catch (FileNotFoundException | ClassNotFoundException ex) {
+                Logger.getLogger(ActionListenerMainMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
             this.mf.getStampa().setVisible(true);
             this.mf.getAggiunta().setVisible(false);
             this.mf.getModifica().setVisible(false);

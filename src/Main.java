@@ -3,6 +3,7 @@ import Constants.Accessori;
 import Constants.Utenti;
 import Control.ActionListenerLoginForm;
 import Control.ActionListenerMainMenu;
+import Control.ActionListenerVendita;
 import Control.ListenerAggiuntaAuto;
 import Control.ListenerFiltriStampa;
 import Model.Concessionaria;
@@ -49,9 +50,10 @@ public class Main {
             Filters f = new Filters();
             Concessionaria c = new Concessionaria(fm, u);
             ActionListenerLoginForm allf = new ActionListenerLoginForm(lp, mf, u);
-            ActionListenerMainMenu almm = new ActionListenerMainMenu(mf);
+            ActionListenerMainMenu almm = new ActionListenerMainMenu(mf, u, fm);
             ListenerAggiuntaAuto laa = new ListenerAggiuntaAuto(mf,c,a);
             ListenerFiltriStampa lfs = new ListenerFiltriStampa(mf, c, u, fm, f);
+            ActionListenerVendita alv = new ActionListenerVendita(mf, fm, u);
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -1158,6 +1158,12 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
     public JComboBox<String> getjComboBox9() {
         return jComboBox9;
     }
+    public JList<String> getLista_Vendita() {
+        return Lista_Vendita;
+    }
+    public JButton getjButton1() {
+        return this.jButton1;
+    }
     
     public void ToggleMenu(){
         if(this.menuStatus){
@@ -1255,6 +1261,10 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
         this.jTextField5.addMouseListener(ml);
     }
    
+    public void setActionVendita(ActionListener al){
+        this.jButton1.addActionListener(al);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Aggiunta;
     private javax.swing.JButton ApplicaFiltro;
