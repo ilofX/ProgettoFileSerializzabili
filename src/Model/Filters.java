@@ -26,6 +26,25 @@ import javax.swing.DefaultListModel;
  */
 public class Filters {
     
+    public static ArrayList<Auto> filtraPerStato(ArrayList<Auto> lista, boolean usato){
+        ArrayList<Auto> ris = new ArrayList<>();
+        Iterator i = lista.iterator();
+        while(i.hasNext()){
+            Auto a = (Auto)i.next();
+            if(usato){
+                if(a.isUsato()){
+                    ris.add(a);
+                }
+            }
+            else{
+                if(!a.isUsato()){
+                    ris.add(a);
+                }
+            }
+        }
+        return ris;
+    }
+    
     public static ArrayList<Auto> filtraPerPrezzo(ArrayList<Auto> lista,Integer start,Integer end){
         ArrayList<Auto> ris = new ArrayList<>();
         Iterator i = lista.iterator();
