@@ -341,6 +341,11 @@ public class FileManager {
             }
             i++;
         }
+        if(index==0){
+            outFileDummy = new FileOutputStream(dummy);
+            outObjectDummy = new ObjectOutputStream(outFileDummy);
+            first=false;
+        }
         this.inFile.close();
         outFileDummy.close();
         f.delete();
