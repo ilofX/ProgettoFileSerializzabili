@@ -1,6 +1,7 @@
 package Model;
 
 import Model.EditedClasses.AppendObjectOutputStream;
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -35,8 +36,8 @@ import java.util.logging.Logger;
  */
 public class FileManager {
     
-    private File Treviso,Oderzo,Vittorio,Mogliano;
-    private File Treviso_Vendute,Oderzo_Vendute,Vittorio_Vendute,Mogliano_Vendute;
+    private final File Treviso,Oderzo,Vittorio,Mogliano;
+    private final File Treviso_Vendute,Oderzo_Vendute,Vittorio_Vendute,Mogliano_Vendute;
     private FileInputStream inFile;
     private FileOutputStream outFile;
     private ObjectInputStream inObject;
@@ -153,6 +154,7 @@ public class FileManager {
             }
         }
         this.outObject.writeObject(auto);
+        this.outFile.close();
     }
 
     public ArrayList<Auto> read(String file,boolean vendute) throws FileNotFoundException, ClassNotFoundException{
@@ -241,16 +243,23 @@ public class FileManager {
         while(true){
             try {
                 Auto a = (Auto) this.inObject.readObject();
-                ris.add(a);
+                if(a!=null) {
+                    ris.add(a);
+                }
             } catch (IOException ex) {
                 break;
             }
         }
+        try {
+            this.inFile.close();
+        } catch (IOException ex) {
+            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return ris;
     }
     
-    public void remove(String file,boolean vendute,Auto auto) throws FileNotFoundException, IOException{
-        File f=null;
+    public Auto remove(String file,boolean vendute,Integer index) throws FileNotFoundException, IOException{
+        File f;
         if(vendute){
             switch(file){
                 case "Treviso":
@@ -298,141 +307,18 @@ public class FileManager {
         this.inObject = new ObjectInputStream(this.inFile);
         File dummy = new File("Resources/dummy.dat");
         boolean first=true;
+        int i = 0;
+        Auto a,ris=null;
+        FileOutputStream outFileDummy; 
+        ObjectOutputStream outObjectDummy;
         while(true){
-            Auto a = null;
-            FileOutputStream outFileDummy; 
-            ObjectOutputStream outObjectDummy;
-            try {
-                a= (Auto)this.inObject.readObject();
-            } catch (ClassNotFoundException ex) {
-                break;
-            } finally {
-                dummy.delete();
-                if(first){
-                    outFileDummy = new FileOutputStream(dummy);
-                    outObjectDummy = new ObjectOutputStream(outFileDummy);
-                    first=false;
-                }
-                else{
-                    outFileDummy = new FileOutputStream(dummy,true);
-                    outObjectDummy = new AppendObjectOutputStream(outFileDummy);
-                }
-                if(!auto.equals(a)){
-                    outObjectDummy.writeObject(a);
-                }
-                outFileDummy.close();
-            }
-        }
-        f.delete();
-        dummy.renameTo(f);
-        if(vendute){
-            switch(file){
-                case "Treviso":
-                    this.Treviso_Vendute=dummy;
-                    break;
-                case "Oderzo":
-                    this.Oderzo_Vendute=dummy;
-                    break;
-                case "Vittorio":
-                    this.Vittorio_Vendute=dummy;
-                    break;
-                case "Mogliano":
-                    this.Mogliano_Vendute=dummy;
-                    break;
-                default:
-                    throw new IllegalStateException("Filiale non trovata");           
-            }
-        }
-        else{
-            switch(file){
-                case "Treviso":
-                    this.Treviso=dummy;
-                    break;
-                case "Oderzo":
-                    this.Oderzo=dummy;
-                    break;
-                case "Vittorio":
-                    this.Vittorio=dummy;
-                    break;
-                case "Mogliano":
-                    this.Mogliano=dummy;
-                    break;
-                default:
-                    throw new IllegalStateException("Filiale non trovata");           
-            }
-        }
-    }
-    
-     public void move(String file, Integer index) throws FileNotFoundException, IOException{
-        File f=null;
-        FileOutputStream outFileVendute;
-        ObjectOutputStream outObjectVendute;
-        switch(file){
-            case "Treviso":
-                f=this.Treviso;
-                this.inFile = new FileInputStream(this.Treviso);
-                if(this.Treviso_Vendute.exists()){
-                    outFileVendute = new FileOutputStream(this.Treviso_Vendute,true);
-                    outObjectVendute = new AppendObjectOutputStream(outFileVendute);
-                }                    
-                else{
-                    outFileVendute = new FileOutputStream(this.Treviso_Vendute);
-                    outObjectVendute = new ObjectOutputStream(outFileVendute);
-                }
-                break;
-            case "Oderzo":
-                f=this.Oderzo;
-                this.inFile = new FileInputStream(this.Oderzo);
-                if(this.Oderzo_Vendute.exists()){
-                    outFileVendute = new FileOutputStream(this.Oderzo_Vendute,true);
-                    outObjectVendute = new AppendObjectOutputStream(outFileVendute);
-                }                    
-                else{
-                    outFileVendute = new FileOutputStream(this.Oderzo_Vendute);
-                    outObjectVendute = new ObjectOutputStream(outFileVendute);
-                }
-                break;
-            case "Vittorio":
-                f=this.Vittorio;
-                this.inFile = new FileInputStream(this.Vittorio);
-                if(this.Vittorio_Vendute.exists()){
-                    outFileVendute = new FileOutputStream(this.Vittorio_Vendute);
-                    outObjectVendute = new AppendObjectOutputStream(outFileVendute);
-                }                    
-                else{
-                    outFileVendute = new FileOutputStream(this.Vittorio_Vendute);
-                    outObjectVendute = new ObjectOutputStream(outFileVendute);
-                }
-                break;
-            case "Mogliano":
-                f=this.Mogliano;
-                this.inFile = new FileInputStream(this.Mogliano);
-                if(this.Mogliano_Vendute.exists()){
-                    outFileVendute = new FileOutputStream(this.Mogliano_Vendute);
-                    outObjectVendute = new AppendObjectOutputStream(outFileVendute);
-                }                    
-                else{
-                    outFileVendute = new FileOutputStream(this.Mogliano_Vendute);
-                    outObjectVendute = new ObjectOutputStream(outFileVendute);
-                }
-                break;
-            default:
-                throw new IllegalStateException("Filiale non trovata");           
-        }
-        this.inObject = new ObjectInputStream(this.inFile);
-        File dummy = new File("Resources/dummy.dat");
-        boolean first=true;
-        int i=0;
-        while(true){
-            Auto a = null;
-            FileOutputStream outFileDummy; 
-            ObjectOutputStream outObjectDummy;
+            a = null;
             try {
                 a = (Auto)this.inObject.readObject();
-            } catch (IOException ex) {
-                break;
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+                
+            } catch (EOFException ex){
+                break;
             } finally {
                 if(first){
                     outFileDummy = new FileOutputStream(dummy);
@@ -444,36 +330,142 @@ public class FileManager {
                     outObjectDummy = new AppendObjectOutputStream(outFileDummy);
                 }
                 if(i==index){
-                    outObjectVendute.writeObject(a);
+                    ris = a;
                 }
                 else{
-                    outObjectDummy.writeObject(a);
+                    if(a!=null) {
+                        outObjectDummy.writeObject(a);
+                    }
                 }
                 outFileDummy.close();
             }
             i++;
         }
-        
-        outFileVendute.close();
+        this.inFile.close();
+        outFileDummy.close();
         f.delete();
         dummy.renameTo(f);
-        switch(file){
-            case "Treviso":
-                this.Treviso_Vendute=dummy;
-                break;
-            case "Oderzo":
-                this.Oderzo_Vendute=dummy;
-                break;
-            case "Vittorio":
-                this.Vittorio_Vendute=dummy;
-                break;
-            case "Mogliano":
-                this.Mogliano_Vendute=dummy;
-                break;
-            default:
-                throw new IllegalStateException("Filiale non trovata");               
-        }
-        dummy.delete();
+        return ris;
     }
     
+    public void move(String file, Integer index) throws FileNotFoundException, IOException{
+        Auto a = this.remove(file, false, index);
+        this.write(file, true, a);
+    }
+    
+    public void edit(String file, Integer index, Auto nuovo) throws FileNotFoundException, IOException{
+        File f;
+        switch(file){
+            case "Treviso":
+                f=this.Treviso;
+                this.inFile = new FileInputStream(this.Treviso);
+                break;
+            case "Oderzo":
+                f=this.Oderzo;
+                this.inFile = new FileInputStream(this.Oderzo);
+                break;
+            case "Vittorio":
+                f=this.Vittorio;
+                this.inFile = new FileInputStream(this.Vittorio);
+                break;
+            case "Mogliano":
+                f=this.Mogliano;
+                this.inFile = new FileInputStream(this.Mogliano);
+                break;
+            default:
+                throw new IllegalStateException("Filiale non trovata");           
+        }
+        this.inObject = new ObjectInputStream(this.inFile);
+        File dummy = new File("Resources/dummy.dat");
+        boolean first=true;
+        int i = 0;
+        Auto a;
+        FileOutputStream outFileDummy; 
+        ObjectOutputStream outObjectDummy;
+        while(true){
+            a = null;
+            try {
+                a = (Auto)this.inObject.readObject();
+            } catch (ClassNotFoundException ex) {
+                
+            } catch (EOFException ex){
+                break;
+            } finally {
+                if(first){
+                    outFileDummy = new FileOutputStream(dummy);
+                    outObjectDummy = new ObjectOutputStream(outFileDummy);
+                    first=false;
+                }
+                else{
+                    outFileDummy = new FileOutputStream(dummy,true);
+                    outObjectDummy = new AppendObjectOutputStream(outFileDummy);
+                }
+                if(i==index){
+                    outObjectDummy.writeObject(nuovo);
+                }
+                else{
+                    if(a!=null) {
+                        outObjectDummy.writeObject(a);
+                    }
+                }
+                outFileDummy.close();
+            }
+            i++;
+        }
+        this.inFile.close();
+        outFileDummy.close();
+        f.delete();
+        dummy.renameTo(f);
+    }
+    
+    public ArrayList<Accessorio> getAccessori(String file, Integer index) throws FileNotFoundException, IOException {
+        switch(file){
+            case "Treviso":
+                this.inFile = new FileInputStream(this.Treviso);
+                break;
+            case "Oderzo":
+                this.inFile = new FileInputStream(this.Oderzo);
+                break;
+            case "Vittorio":
+                this.inFile = new FileInputStream(this.Vittorio);
+                break;
+            case "Mogliano":
+                this.inFile = new FileInputStream(this.Mogliano);
+                break;
+            default:
+                throw new IllegalStateException("Filiale non trovata");           
+        }
+        this.inObject = new ObjectInputStream(this.inFile);
+        Auto a;
+        int i=0;
+        ArrayList<Accessorio> ris = null;
+        while(true){
+            a = null;
+            try {
+                a = (Auto)this.inObject.readObject();
+            } catch (ClassNotFoundException ex) {
+            } catch (EOFException ex){
+                break;
+            }
+            if(i==index){
+                ris=a.getAccessori();
+            }
+            i++;
+        }
+        this.inFile.close();
+        return ris;
+    }
+    
+    public Auto getAuto(String file, Integer index){
+        Auto ris=null;
+        try {
+            ArrayList <Auto> a = this.read(file, false);
+            ris = a.get(index);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return ris;
+    }
 }

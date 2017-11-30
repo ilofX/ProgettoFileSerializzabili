@@ -20,6 +20,7 @@ import Model.Accessorio;
 import Model.Auto;
 import Model.Concessionaria;
 import View.MainFrame;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -89,6 +90,7 @@ public class ListenerAggiuntaAuto implements ActionListener, MouseListener {
                 this.cn.aggiungiAuto(temp, false);
             } catch (IOException ex) {
                 Logger.getLogger(ListenerAggiuntaAuto.class.getName()).log(Level.SEVERE, null, ex);
+                this.mf.getjLabel9().setForeground(Color.red);
                 this.mf.getjLabel9().setText("Errore durante l'aggiunta dell'automobile");
                 this.mf.clearLogger();
                 return;
@@ -104,7 +106,7 @@ public class ListenerAggiuntaAuto implements ActionListener, MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         if(e.getSource()==this.mf.getjTextField5()){
-            FileNameExtensionFilter def = new FileNameExtensionFilter("Images", "jpg,jpeg,png");
+            FileNameExtensionFilter def = new FileNameExtensionFilter("Images", "jpg","jpeg","png","bmp");
             JFileChooser chooser = new JFileChooser();
             chooser.addChoosableFileFilter(def);
             chooser.setFileFilter(def);

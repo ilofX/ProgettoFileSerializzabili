@@ -89,7 +89,7 @@ public class ListenerFiltriStampa implements ActionListener{
         else if(e.getSource()==this.mf.getApplicaFiltro()){
             try {
                 //STAMPA DEI RISULTATI
-                ArrayList<Auto> ris = this.fm.read(this.u.getLoggedUser(),this.mf.getFiltroUsato().isSelected());
+                ArrayList<Auto> ris = this.fm.read(this.u.getLoggedUser(),false);
                 if(this.mf.getFiltroUsato().isSelected())           ris = this.f.filtraPerStato(ris, true);     else   ris = this.f.filtraPerStato(ris, false); 
                 if(this.mf.getFiltroAlimentazione().isSelected())   ris = this.f.filtraPerAlimentazione(ris, (String)this.mf.getjComboBox7().getSelectedItem());
                 if(this.mf.getFiltroPrezzo().isSelected())          ris = this.f.filtraPerPrezzo(ris, Integer.parseInt((String)this.mf.getjComboBox5().getSelectedItem()), Integer.parseInt((String)this.mf.getjComboBox6().getSelectedItem()));

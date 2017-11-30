@@ -28,9 +28,7 @@ public class Filters {
     
     public static ArrayList<Auto> filtraPerStato(ArrayList<Auto> lista, boolean usato){
         ArrayList<Auto> ris = new ArrayList<>();
-        Iterator i = lista.iterator();
-        while(i.hasNext()){
-            Auto a = (Auto)i.next();
+        for (Auto a : lista) {
             if(usato){
                 if(a.isUsato()){
                     ris.add(a);
@@ -47,9 +45,7 @@ public class Filters {
     
     public static ArrayList<Auto> filtraPerPrezzo(ArrayList<Auto> lista,Integer start,Integer end){
         ArrayList<Auto> ris = new ArrayList<>();
-        Iterator i = lista.iterator();
-        while(i.hasNext()){
-            Auto a = (Auto)i.next();
+        for (Auto a : lista) {
             if(a.getPrezzo()>=start && a.getPrezzo()<=end){
                 ris.add(a);
             }
@@ -59,9 +55,7 @@ public class Filters {
     
     public static ArrayList<Auto> filtraPerAlimentazione(ArrayList<Auto> lista,String alimentazione){
         ArrayList<Auto> ris = new ArrayList<>();
-        Iterator i = lista.iterator();
-        while(i.hasNext()){
-            Auto a = (Auto)i.next();
+        for (Auto a : lista) {
             if(a.getAlimentazione().equals(alimentazione)){
                 ris.add(a);
             }
@@ -71,9 +65,7 @@ public class Filters {
     
     public static ArrayList<Auto> filtraPerAnnoProduzione(ArrayList<Auto> lista,Integer anno){
         ArrayList<Auto> ris = new ArrayList<>();
-        Iterator i = lista.iterator();
-        while(i.hasNext()){
-            Auto a = (Auto)i.next();
+        for (Auto a : lista) {
             if(a.getAnno().equals(anno)){
                 ris.add(a);
             }
@@ -83,9 +75,7 @@ public class Filters {
     
     public static ArrayList<Auto> filtraPerMeseProduzione(ArrayList<Auto> lista, String mese){
         ArrayList<Auto> ris = new ArrayList<>();
-        Iterator i = lista.iterator();
-        while(i.hasNext()){
-            Auto a = (Auto)i.next();
+        for (Auto a : lista) {
             if(a.getMese().equals(mese)){
                 ris.add(a);
             }
@@ -106,4 +96,16 @@ public class Filters {
         return ris;
     }
     
+    public static DefaultListModel<String> convertiInListaAccessori(ArrayList<Accessorio> lista){
+        DefaultListModel<String> ris = new DefaultListModel<>();
+        Iterator<Accessorio> i = lista.iterator();
+        while(i.hasNext()){
+            Accessorio a = i.next();
+            ris.addElement(a.getAccessorio());
+        }
+        if(ris.isEmpty()) {
+            ris.addElement("La ricerca non ha prodotto risultati");
+        }
+        return ris;
+    }
 }

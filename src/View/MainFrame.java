@@ -15,6 +15,7 @@
  */
 package View;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -34,6 +35,7 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.event.ListSelectionListener;
 
 /**
  *
@@ -85,6 +87,7 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
         jLabel18 = new javax.swing.JLabel();
         jComboBox4 = new javax.swing.JComboBox<>();
         jButton3 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         Vendita = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -293,6 +296,7 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
 
         jList3.setBackground(new java.awt.Color(77, 77, 77));
         jList3.setForeground(new java.awt.Color(208, 208, 208));
+        jList3.setFocusable(false);
         jScrollPane6.setViewportView(jList3);
 
         jLabel18.setBackground(new java.awt.Color(77, 77, 77));
@@ -303,11 +307,22 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
         jComboBox4.setForeground(new java.awt.Color(208, 208, 208));
         jComboBox4.setModel(this.generaAccessori());
         jComboBox4.setBorder(null);
+        jComboBox4.setEnabled(false);
 
         jButton3.setBackground(new java.awt.Color(0, 113, 156));
         jButton3.setForeground(new java.awt.Color(208, 208, 208));
         jButton3.setText("Aggiungi");
         jButton3.setBorder(null);
+        jButton3.setBorderPainted(false);
+        jButton3.setEnabled(false);
+        jButton3.setFocusPainted(false);
+
+        jButton5.setBackground(new java.awt.Color(0, 113, 156));
+        jButton5.setForeground(new java.awt.Color(208, 208, 208));
+        jButton5.setText("Applica");
+        jButton5.setBorder(null);
+        jButton5.setBorderPainted(false);
+        jButton5.setFocusPainted(false);
 
         javax.swing.GroupLayout ModificaLayout = new javax.swing.GroupLayout(Modifica);
         Modifica.setLayout(ModificaLayout);
@@ -321,13 +336,15 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(ModificaLayout.createSequentialGroup()
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
-                        .addGroup(ModificaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                        .addGroup(ModificaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(ModificaLayout.createSequentialGroup()
                                 .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGroup(ModificaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(24, 24, 24))
                     .addGroup(ModificaLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
@@ -346,15 +363,17 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
                     .addComponent(jLabel17)
                     .addComponent(jLabel18))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(ModificaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(ModificaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModificaLayout.createSequentialGroup()
-                        .addComponent(jScrollPane6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(ModificaLayout.createSequentialGroup()
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(ModificaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jComboBox4)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(12, Short.MAX_VALUE))
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(26, 26, 26)
+                        .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         Vendita.setBackground(new java.awt.Color(77, 77, 77));
@@ -1164,6 +1183,21 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
     public JButton getjButton1() {
         return this.jButton1;
     }
+    public JButton getjButton3() {
+        return jButton3;
+    }
+    public JComboBox<String> getjComboBox4() {
+        return jComboBox4;
+    }
+    public JList<String> getjList2() {
+        return jList2;
+    }
+    public JList<String> getjList3() {
+        return jList3;
+    }
+    public JButton getjButton5() {
+        return jButton5;
+    }
     
     public void ToggleMenu(){
         if(this.menuStatus){
@@ -1265,6 +1299,12 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
         this.jButton1.addActionListener(al);
     }
     
+    public void setActionModificaAuto(ActionListener al, ListSelectionListener lsl){
+        this.jButton3.addActionListener(al);
+        this.jButton5.addActionListener(al);
+        this.jList2.addListSelectionListener(lsl);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Aggiunta;
     private javax.swing.JButton ApplicaFiltro;
@@ -1296,6 +1336,7 @@ public class MainFrame extends javax.swing.JFrame implements ActionListener{
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox10;
     private javax.swing.JComboBox<String> jComboBox2;
@@ -1439,6 +1480,7 @@ class ClearLogger extends Thread{
         try {
             sleep(2000);
             this.logger.setText("");
+            this.logger.setForeground(new Color(208, 208, 208));
         } catch (InterruptedException ex) {
             Logger.getLogger(ClearLogger.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -17,9 +17,12 @@ package Control;
 
 import Constants.Utenti;
 import Model.FileManager;
+import Model.Filters;
 import View.MainFrame;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -55,8 +58,18 @@ public class ActionListenerVendita implements ActionListener{
                 }
             }
             else{
+                this.mf.getjLabel9().setForeground(Color.red);
                 this.mf.getjLabel9().setText("Nessuna auto selezionata");
                 this.mf.clearLogger();
+            }
+            try {
+                this.mf.getLista_Vendita().setModel(Filters.convertiInLista(this.fm.read(u.getLoggedUser(), false)));
+            } catch (FileNotFoundException ex){
+                this.mf.getjLabel9().setForeground(Color.red);
+                this.mf.getjLabel9().setText("File inesistente");
+                this.mf.clearLogger();
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ActionListenerMainMenu.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         else{

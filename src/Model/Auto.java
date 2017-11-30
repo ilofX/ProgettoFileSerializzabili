@@ -61,8 +61,14 @@ public class Auto implements Serializable{
         this.prezzo = prezzo;
     }
     
-    public void aggiungiAccessorio(Accessorio a){
-        this.accessori.add(a);
+    public boolean aggiungiAccessorio(Accessorio a){
+        if(this.accessori.contains(a)){
+            return false;
+        }
+        else{
+            this.accessori.add(a);
+            return true;
+        }
     }
     
     public ImageIcon getImage() {
@@ -99,7 +105,12 @@ public class Auto implements Serializable{
         return tableModel;
     }
     public Integer getPrezzo() {
-        return prezzo;
+        Integer ris=0;
+        ris+=this.prezzo;
+        for(Accessorio a : this.accessori){
+            ris+=new Double(a.getPrezzo()).intValue();
+        }
+        return ris;
     }
     public String getMese() {
         return mese;
@@ -160,7 +171,7 @@ public class Auto implements Serializable{
 
     @Override
     public String toString() {
-        return "Auto{" + "marca=" + marca + ", tipo=" + tipo + ", alimentazione=" + alimentazione + ", mese=" + mese + ", accessori=" + accessori + ", image=" + image + ", cilindrata=" + cilindrata + ", anno=" + anno + ", prezzo=" + prezzo + ", usato=" + usato + '}';
+        return "Auto{" + "marca=" + marca + ", tipo=" + tipo + ", alimentazione=" + alimentazione + ", mese=" + mese + ", accessori=" + accessori + ", image=" + image + ", cilindrata=" + cilindrata + ", anno=" + anno + ", prezzo=" + this.getPrezzo() + ", usato=" + usato + '}';
     }
 
     
